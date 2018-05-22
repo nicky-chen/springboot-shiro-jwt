@@ -1,6 +1,6 @@
 <footer>
     <div class="pull-right">
-        Copyright © 2018 <a href="https://www.jianshu.com/u/c44ed4847c3d" target="_blank">nicky_chin</a> · Powered by <a href="https://www.jianshu.com/u/c44ed4847c3d" title="DBlog是一款简洁美观、自适应的Java博客系统..." target="_blank"><strong>DBlog</strong></a>. All Rights Reserved. Current version is 1.0.
+        Copyright © 2018 <a href="https://www.jianshu.com/u/c44ed4847c3d" target="_blank">nicky_chin</a> · Powered by <a href="https://www.jianshu.com/u/c44ed4847c3d" title="技术博客是一款简洁美观、自适应的Java博客系统..." target="_blank"><strong>技术博客</strong></a>. All Rights Reserved. Current version is 1.0.
     </div>
     <div class="clearfix"></div>
 </footer>
