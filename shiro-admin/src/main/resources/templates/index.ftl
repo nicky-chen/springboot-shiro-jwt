@@ -24,7 +24,7 @@
                                         </div>
                                         <div class="block_content">
                                             <h2 class="title"><span>添加Druid监控</span></h2>
-                                            <div class="byline"><span></span> by <a>zyd</a></div>
+                                            <div class="byline"><span></span> by <a>nicky_chin</a></div>
                                             <p class="excerpt">Talk is cheap, show me the code.     -- Linus Torvalds</p>
                                         </div>
                                     </div>
@@ -36,7 +36,7 @@
                                         </div>
                                         <div class="block_content">
                                             <h2 class="title"><span>完善代码、流程，测试角色权限</span></h2>
-                                            <div class="byline"><span></span> by <a>zyd</a></div>
+                                            <div class="byline"><span></span> by <a>nicky_chin</a></div>
                                             <p class="excerpt">Talk is cheap, show me the code.     -- Linus Torvalds</p>
                                         </div>
                                     </div>
@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="block_content">
                                             <h2 class="title"><span>项目提交到Gitee</span></h2>
-                                            <div class="byline"><span></span> by <a>zyd</a></div>
+                                            <div class="byline"><span></span> by <a>nicky_chin</a></div>
                                             <p class="excerpt">初次提交</p>
                                         </div>
                                     </div>

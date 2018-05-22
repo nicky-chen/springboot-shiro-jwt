@@ -108,9 +108,9 @@ banner:
 ################################### 程序自定义配置 ###################################
 nicky:
     druid:
-        # druid访问用户名（默认：zyd-druid）
+        # druid访问用户名
         username: admin
-        # druid访问密码（默认：zyd-druid）
+        # druid访问密码
         password: 123456
         # druid访问地址（默认：/druid/*）
         servletPath: /druid/*

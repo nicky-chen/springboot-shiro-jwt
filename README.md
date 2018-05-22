@@ -1,7 +1,7 @@
 # springboot-shiro-oauth2
 
 #### 项目介绍
-Springboot + shiro权限管理。这或许是流程最详细、代码最干净、配置最简单的shiro上手项目了。
+Springboot + shiro权限管理
 
 #### 开发环境
 
