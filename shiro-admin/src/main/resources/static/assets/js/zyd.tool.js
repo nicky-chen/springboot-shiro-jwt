@@ -163,7 +163,7 @@
 })(jQuery);
 
 /**
- * Created by yadong.zhang on 2017-03-19.
+ * Created by nicky_chin on 2017-03-19.
  */
 
 /**

@@ -44,7 +44,7 @@
                                     <div class="clearfix"></div>
                                     <div>
                                         <h1><i class="fa fa-coffee"></i> Shiro权限管理后台</h1>
-                                        <p>Copyright © 2018 <a href="https://www.zhyd.me">yadong.zhang</a>. All Rights Reserved. </p>
+                                        <p>Copyright © 2018 <a href="https://www.jianshu.com/u/c44ed4847c3d">nicky_chin</a>. All Rights Reserved. </p>
                                     </div>
                                 </div>
                             </form>
