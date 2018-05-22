@@ -51,13 +51,6 @@ _链接_： `http://127.0.0.1:8080/druid/index.html`
 用户名：admin  密码：123456
 
 
-#### 参与贡献
-
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
-
 #### 图片预览
 
 ![首页](https://github.com/nicky-chen/springboot-shiro-oauth2/blob/master/docs/img/index.png?raw=true)

@@ -21,7 +21,7 @@ package com.zyd.shiro.controller;
 
 import com.zyd.shiro.business.consts.CommonConst;
 import com.zyd.shiro.business.enums.ResponseStatus;
-import com.zyd.shiro.framework.exception.ZhydException;
+import com.zyd.shiro.framework.exception.CommonException;
 import com.zyd.shiro.framework.object.ResponseVO;
 import com.zyd.shiro.util.ResultUtil;
 import org.slf4j.Logger;
@@ -49,7 +49,7 @@ public class ExceptionHandleController {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public ResponseVO handle(Throwable e) {
-        if (e instanceof ZhydException) {
+        if (e instanceof CommonException) {
             return ResultUtil.error(e.getMessage());
         }
         if (e instanceof UndeclaredThrowableException) {

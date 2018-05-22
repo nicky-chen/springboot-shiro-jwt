@@ -26,7 +26,7 @@ import com.zyd.shiro.business.enums.UserStatusEnum;
 import com.zyd.shiro.business.service.SysRoleService;
 import com.zyd.shiro.business.service.SysUserService;
 import com.zyd.shiro.business.vo.UserConditionVO;
-import com.zyd.shiro.framework.exception.ZhydException;
+import com.zyd.shiro.framework.exception.CommonException;
 import com.zyd.shiro.framework.holder.RequestHolder;
 import com.zyd.shiro.persistence.beans.SysUser;
 import com.zyd.shiro.persistence.mapper.SysUserMapper;
@@ -113,7 +113,7 @@ public class SysUserServiceImpl implements SysUserService {
             try {
                 user.setPassword(PasswordUtil.encrypt(user.getPassword(), user.getUsername()));
             } catch (Exception e) {
-                throw new ZhydException("密码加密失败");
+                throw new CommonException("密码加密失败");
             }
         }
         return sysUserMapper.updateByPrimaryKey(user.getSysUser()) > 0;
@@ -129,7 +129,7 @@ public class SysUserServiceImpl implements SysUserService {
                 user.setPassword(PasswordUtil.encrypt(user.getPassword(), user.getUsername()));
             } catch (Exception e) {
                 e.printStackTrace();
-                throw new ZhydException("密码加密失败");
+                throw new CommonException("密码加密失败");
             }
         } else {
             user.setPassword(null);
