@@ -47,7 +47,7 @@
                                             <a href="javascript:;" class="tag"><span>05月15日</span></a>
                                         </div>
                                         <div class="block_content">
-                                            <h2 class="title"><span>项目提交到Gitee</span></h2>
+                                            <h2 class="title"><span>项目提交到GitHub</span></h2>
                                             <div class="byline"><span></span> by <a>nicky_chin</a></div>
                                             <p class="excerpt">初次提交</p>
                                         </div>
