@@ -48,9 +48,9 @@ import java.util.Map;
 /**
  * Shiro配置类
  *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
+ * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
- * @website https://www.zhyd.me
+
  * @date 2018/4/24 14:37
  * @since 1.0
  */

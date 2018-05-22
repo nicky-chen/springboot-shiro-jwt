@@ -24,8 +24,8 @@
 package com.zyd.shiro.business.enums;
 
 /**
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @website https://www.zhyd.me
+ * @author nicky_chin [shuilianpiying@163.com]
+
  * @version 1.0
  * @date 2018/4/16 16:26
  * @since 1.0

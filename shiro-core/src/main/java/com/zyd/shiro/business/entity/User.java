@@ -20,7 +20,9 @@
 package com.zyd.shiro.business.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.zyd.shiro.business.enums.*;
+import com.zyd.shiro.business.enums.UserGenderEnum;
+import com.zyd.shiro.business.enums.UserStatusEnum;
+import com.zyd.shiro.business.enums.UserTypeEnum;
 import com.zyd.shiro.framework.object.AbstractBO;
 import com.zyd.shiro.persistence.beans.SysUser;
 import com.zyd.shiro.util.PasswordUtil;
@@ -29,8 +31,8 @@ import org.springframework.util.StringUtils;
 import java.util.Date;
 
 /**
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @website https://www.zhyd.me
+ * @author nicky_chin [shuilianpiying@163.com]
+
  * @version 1.0
  * @date 2018/4/16 16:26
  * @since 1.0

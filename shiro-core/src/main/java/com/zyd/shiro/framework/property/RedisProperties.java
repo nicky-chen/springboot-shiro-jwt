@@ -23,8 +23,8 @@
  */
 package com.zyd.shiro.framework.property;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -32,16 +32,15 @@ import org.springframework.core.annotation.Order;
 /**
  * redis属性配置文件
  *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
+ * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
- * @website https://www.zhyd.me
  * @date 2018/4/16 16:26
  * @since 1.0
  */
 @Configuration
 @ConfigurationProperties(prefix = "spring.redis")
-@Data
-@EqualsAndHashCode(callSuper = false)
+@Getter
+@Setter
 @Order(-1)
 public class RedisProperties {
     private String host;

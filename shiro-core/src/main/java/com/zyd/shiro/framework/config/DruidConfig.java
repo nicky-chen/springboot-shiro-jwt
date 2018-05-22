@@ -39,9 +39,9 @@ import java.util.List;
 /**
  * Druid Monitor 配置
  *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
+ * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
- * @website https://www.zhyd.me
+
  * @date 2017/9/16 16:26
  * @since 1.0
  */

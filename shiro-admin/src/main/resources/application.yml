@@ -106,7 +106,7 @@ banner:
     charset: UTF-8
 
 ################################### 程序自定义配置 ###################################
-zyd:
+nicky:
     druid:
         # druid访问用户名（默认：zyd-druid）
         username: admin
