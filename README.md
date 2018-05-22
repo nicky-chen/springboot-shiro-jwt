@@ -1,4 +1,4 @@
-# springboot-shiro
+# springboot-shiro-oauth2
 
 #### 项目介绍
 Springboot + shiro权限管理。这或许是流程最详细、代码最干净、配置最简单的shiro上手项目了。
@@ -7,9 +7,9 @@ Springboot + shiro权限管理。这或许是流程最详细、代码最干净�
 
 | 工具    | 版本或描述                |    
 | ----- | -------------------- |    
-| OS    | Windows 7            |    
-| JDK   | 1.7+                 |    
-| IDE   | IntelliJ IDEA 2017.3 |    
+| OS    | Windows 10           |    
+| JDK   | 1.8+                 |    
+| IDE   | IntelliJ IDEA        |    
 | Maven | 3.3.1                |    
 | MySQL | 5.6.4                |    
 
@@ -22,7 +22,7 @@ Springboot + shiro权限管理。这或许是流程最详细、代码最干净�
 
 #### SQL Model
 
-![首页](https://gitee.com/yadong.zhang/shiro/raw/master/docs/img/sql-model.png?v=1.0)
+![首页](https://github.com/nicky-chen/springboot-shiro-oauth2/blob/master/docs/img/sql-model.png?raw=true)
 
 #### 使用说明
 
@@ -48,7 +48,7 @@ _普通管理员_： 账号：admin  密码：123456
 
 _链接_： `http://127.0.0.1:8080/druid/index.html`
 
-用户名：zyd-druid  密码：zyd-druid
+用户名：admin  密码：123456
 
 
 #### 参与贡献
@@ -60,25 +60,12 @@ _链接_： `http://127.0.0.1:8080/druid/index.html`
 
 #### 图片预览
 
-![首页](https://gitee.com/yadong.zhang/shiro/raw/master/docs/img/index.png?v=1.0)
-![资源管理](https://gitee.com/yadong.zhang/shiro/raw/master/docs/img/root-resource.png?v=1.0)
-![角色管理](https://gitee.com/yadong.zhang/shiro/raw/master/docs/img/root-role.png?v=1.0)
-![角色分配资源](https://gitee.com/yadong.zhang/shiro/raw/master/docs/img/root-role[root].png?v=1.0)
-![用户管理](https://gitee.com/yadong.zhang/shiro/raw/master/docs/img/root-user.png?v=1.0)
-![用户分配角色](https://gitee.com/yadong.zhang/shiro/raw/master/docs/img/root-user[role].png?v=1.0)
+![首页](https://github.com/nicky-chen/springboot-shiro-oauth2/blob/master/docs/img/index.png?raw=true)
+![资源管理](https://github.com/nicky-chen/springboot-shiro-oauth2/blob/master/docs/img/root-resource.png?raw=true)
+![角色管理](https://github.com/nicky-chen/springboot-shiro-oauth2/blob/master/docs/img/root-role.png?raw=true)
+![角色分配资源](https://github.com/nicky-chen/springboot-shiro-oauth2/blob/master/docs/img/root-role[root].png?raw=true)
+![用户管理](https://github.com/nicky-chen/springboot-shiro-oauth2/blob/master/docs/img/root-user.png?raw=true)
+![用户分配角色](https://github.com/nicky-chen/springboot-shiro-oauth2/blob/master/docs/img/root-user[role].png?raw=true)
 
 _注：以上图片是以`root`用户登录，`admin`用户的界面请参考`docs/img`下的图片_
 
-#### 生命不息，折腾不止！ 更多信息，请关注：
- 1. [我的博客](https://www.zhyd.me)
- 2. [我的微博](http://weibo.com/211230415)
- 3. [我的头条号](http://www.toutiao.com/c/user/3286958681/)
- 4. [我的imooc](http://www.imooc.com/u/1175248/articles)
- 4. [我的CSDN](https://blog.csdn.net/u011197448)
-
-#### 有任何问题可以
-- [给我留言](https://www.zhyd.me/guestbook)
-
-
-#### 开源协议
- [MIT](https://gitee.com/yadong.zhang/DBlog/blob/master/LICENSE)
