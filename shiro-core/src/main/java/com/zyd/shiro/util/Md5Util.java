@@ -1,8 +1,7 @@
 
 package com.zyd.shiro.util;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.security.MessageDigest;
 
@@ -11,12 +10,11 @@ import java.security.MessageDigest;
  *
  * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
-
  * @date 2018/4/18 11:48
  * @since 1.0
  */
+@Slf4j
 public class Md5Util {
-    private static final Logger LOG = LoggerFactory.getLogger(Md5Util.class);
 
     /**
      * 通过盐值对字符串进行MD5加密
@@ -25,7 +23,6 @@ public class Md5Util {
      *         需要加密的字符串
      * @param salt
      *         盐值
-     * @return
      */
     public static String MD5(String param, String salt) {
         return MD5(param + salt);
@@ -36,7 +33,6 @@ public class Md5Util {
      *
      * @param s
      *         字符串
-     * @return
      */
     public static String MD5(String s) {
         char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -54,7 +50,7 @@ public class Md5Util {
             }
             return new String(str);
         } catch (Exception e) {
-            LOG.error("MD5生成失败", e);
+            log.error("MD5生成失败", e);
             return null;
         }
     }

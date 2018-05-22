@@ -13,13 +13,14 @@ import java.security.SecureRandom;
 /**
  *
  * @author nicky_chin [shuilianpiying@163.com]
-
  * @version 1.0
  * @date 2018/4/16 16:26
  * @since 1.0
  */
 public class AesUtil {
+
     private static final String KEY_ALGORITHM = "AES";
+
     private static final String DEFAULT_CIPHER_ALGORITHM = "AES/ECB/PKCS5Padding";
 
     /**
@@ -73,8 +74,6 @@ public class AesUtil {
 
     /**
      * 生成加密秘钥
-     *
-     * @return
      */
     private static SecretKeySpec getSecretKey(final String password) throws NoSuchAlgorithmException {
         //返回生成指定算法密钥生成器的 KeyGenerator 对象

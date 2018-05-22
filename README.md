@@ -30,8 +30,9 @@ Springboot + shiro权限管理
 2. 新建数据库`CREATE DATABASE shiro;`
 3. 导入数据库`docs/db/shiro.sql`
 4. 修改(`resources/application.yml`)配置文件
-   1. 数据库链接属性(可搜索`datasource`或定位到L.19) 
-   2. redis配置(可搜索`redis`或定位到L.69)
+   1. 数据库链接属性 
+   2. redis配置
+   
 5. 运行项目(三种方式)
    1. 项目根目录下执行`mvn -X clean package -Dmaven.test.skip=true`编译打包，然后执行`java -jar shiro-admin/target/shiro-admin.jar`
    2. 项目根目录下执行`mvn springboot:run`

@@ -12,7 +12,6 @@ import java.util.UUID;
  *
  * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
-
  * @date 2018/4/18 11:48
  * @since 1.0
  */
@@ -20,7 +19,6 @@ public class SessionUtil {
 
     /**
      * 获取session中的用户信息
-     *
      * @return User
      */
     public static User getUser() {
@@ -29,8 +27,6 @@ public class SessionUtil {
 
     /**
      * 添加session
-     *
-     * @param user
      */
     public static void setUser(User user) {
         RequestHolder.setSession(SessionConst.USER_SESSION_KEY, user);

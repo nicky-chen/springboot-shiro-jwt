@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
-
  * @date 2018/4/18 11:48
  * @since 1.0
  */
@@ -19,8 +18,6 @@ public class IpUtil {
     /**
      * 获取真实IP
      *
-     * @param request
-     * @return
      */
     public static String getRealIp(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");

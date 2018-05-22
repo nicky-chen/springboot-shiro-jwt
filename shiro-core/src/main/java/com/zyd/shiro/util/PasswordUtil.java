@@ -3,10 +3,7 @@ package com.zyd.shiro.util;
 
 import com.zyd.shiro.business.consts.CommonConst;
 
-/**
- * @author: yadong.zhang
- * @date: 2017/12/15 17:03
- */
+
 public class PasswordUtil {
 
     /**
