@@ -88,12 +88,12 @@ spring:
 
 # MyBatis
 mybatis:
-    type-aliases-package: com.zyd.shiro.persistence.beans
+    type-aliases-package: com.nicky.shiro.persistence.beans
     mapper-locations: classpath:/mybatis/*.xml
 # mapper
 mapper:
     mappers:
-        - com.zyd.shiro.plugin.BaseMapper
+        - com.nicky.shiro.plugin.BaseMapper
     not-empty: true
     identity: MYSQL
 # pagehelper

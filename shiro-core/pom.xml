@@ -11,7 +11,7 @@
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
-		<groupId>com.zyd.shiro</groupId>
+		<groupId>com.nicky.shiro</groupId>
 		<artifactId>shiro</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>

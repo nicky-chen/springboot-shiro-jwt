@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.zyd.shiro.persistence.mapper.SysRoleMapper">
-	<resultMap id="rm" type="com.zyd.shiro.persistence.beans.SysRole">
+<mapper namespace="com.nicky.shiro.persistence.mapper.SysRoleMapper">
+	<resultMap id="rm" type="com.nicky.shiro.persistence.beans.SysRole">
 		<result property="id" jdbcType="BIGINT" column="id"/>
 		<result property="name" jdbcType="VARCHAR" column="name"/>
 		<result property="description" jdbcType="VARCHAR" column="description"/>
@@ -10,7 +10,7 @@
 		<result property="createTime" jdbcType="TIMESTAMP" column="create_time"/>
 		<result property="updateTime" jdbcType="TIMESTAMP" column="update_time"/>
 	</resultMap>
-	<select id="findPageBreakByCondition" parameterType="com.zyd.shiro.business.vo.RoleConditionVO" resultMap="rm">
+	<select id="findPageBreakByCondition" parameterType="com.nicky.shiro.business.vo.RoleConditionVO" resultMap="rm">
 		SELECT
 			com.*
 		FROM
