@@ -9,6 +9,6 @@ import org.springframework.stereotype.Component;
  * @since 1.0
  */
 @Component
-@tk.mybatis.spring.annotation.MapperScan("com.zyd.shiro.persistence.mapper")
+@tk.mybatis.spring.annotation.MapperScan(basePackages = {"com.zyd.shiro.persistence.mapper"})
 public class MybatisConfig {
 }
