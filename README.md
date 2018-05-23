@@ -1,4 +1,4 @@
-# springboot-shiro-oauth2
+# springboot-shiro-jwt
 
 #### 项目介绍
 Springboot + shiro权限管理
