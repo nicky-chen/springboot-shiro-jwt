@@ -94,7 +94,7 @@ mybatis:
 mapper:
     mappers:
         - com.zyd.shiro.plugin.BaseMapper
-    not-empty: false
+    not-empty: true
     identity: MYSQL
 # pagehelper
 pagehelper:

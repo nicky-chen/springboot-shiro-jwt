@@ -3,7 +3,6 @@ package com.zyd.shiro.framework.object;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.GeneratedValue;
@@ -20,7 +19,6 @@ import java.util.Date;
  */
 @Getter
 @Setter
-@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false, of = {"id"})
 public abstract class AbstractDO implements Serializable {
 

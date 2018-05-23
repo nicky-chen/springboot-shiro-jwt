@@ -70,5 +70,4 @@ public class SysResources extends AbstractDO {
         sb.append('}');
         return sb.toString();
     }
-
 }
