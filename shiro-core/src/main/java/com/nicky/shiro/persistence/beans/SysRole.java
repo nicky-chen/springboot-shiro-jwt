@@ -20,7 +20,7 @@ import javax.persistence.Transient;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SysRole extends AbstractDO implements AdapteeTarget {
+public class SysRole extends AbstractDO {
 
     private static final long serialVersionUID = -7206345155723108987L;
 
@@ -38,5 +38,9 @@ public class SysRole extends AbstractDO implements AdapteeTarget {
     public String toString() {
         AdapteeTarget target = new StringAdapter<>(this, 1 << 7);
         return target.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new SysRole());
     }
 }

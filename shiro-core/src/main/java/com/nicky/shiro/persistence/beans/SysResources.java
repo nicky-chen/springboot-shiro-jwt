@@ -23,7 +23,7 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SysResources extends AbstractDO implements AdapteeTarget {
+public class SysResources extends AbstractDO {
 
     private static final long serialVersionUID = 1936021577348624761L;
 
