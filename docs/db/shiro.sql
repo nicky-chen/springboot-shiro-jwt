@@ -1,15 +1,4 @@
 /*
-Navicat MySQL Data Transfer
-
-Source Server         : root
-Source Server Version : 50624
-Source Host           : 127.0.0.1:3306
-Source Database       : shiro
-
-Target Server Type    : MYSQL
-Target Server Version : 50624
-File Encoding         : 65001
-
 Date: 2018-05-17 13:56:52
 */
 
@@ -159,8 +148,8 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'root', 'CGUx1FN++xS+4wNDFeN6DA==', '超级管理员', '15151551516', '843977358@qq.com', '843977358', null, null, 'https://static.zhyd.me/static/img/favicon.ico', 'ROOT', null, '127.0.0.1', '2018-05-17 13:09:35', '228', null, '1', '2018-01-02 09:32:15', '2018-05-17 13:09:35');
-INSERT INTO `sys_user` VALUES ('2', 'admin', 'gXp2EbyZ+sB/A6QUMhiUJQ==', '管理员', '15151551516', '843977358@qq.com', '843977358', null, null, null, 'ADMIN', '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1', '2018-05-17 13:08:30', '13', null, '1', '2018-01-02 15:56:34', '2018-05-17 13:08:30');
+INSERT INTO `sys_user` VALUES ('1', 'root', 'CGUx1FN++xS+4wNDFeN6DA==', '超级管理员', '1581751526', '666666@qq.com', '843945932', null, null, 'http://imgsrc.baidu.com/imgad/pic/item/0b46f21fbe096b639324bc7506338744ebf8acd2.jpg', 'ROOT', null, '127.0.0.1', '2018-05-17 13:09:35', '228', null, '1', '2018-01-02 09:32:15', '2018-05-17 13:09:35');
+INSERT INTO `sys_user` VALUES ('2', 'admin', 'gXp2EbyZ+sB/A6QUMhiUJQ==', '管理员', '15551554516', '992568574@qq.com', '8439755658', null, null, null, 'ADMIN', '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1', '2018-05-17 13:08:30', '13', null, '1', '2018-01-02 15:56:34', '2018-05-17 13:08:30');
 
 -- ----------------------------
 -- Table structure for sys_user_role

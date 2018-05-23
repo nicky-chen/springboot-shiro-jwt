@@ -9,7 +9,7 @@
  */
 (function ($) {
     $.extend($.fn, {
-        zydSelect: function (options) {
+        nickySelect: function (options) {
             var op = $.extend({firstText: '请选择', firstValue: ''}, options);
             function onchange(event){
                 var $child = $("#" + event.data.$child);
@@ -56,7 +56,7 @@
         }
     });
 })(jQuery);
-var zhyd = window.zhyd || {
+var nicky = window.nicky || {
     initSidebar: function () {
         var a = function () {
             $RIGHT_COL.css("min-height", $(window).height());
@@ -97,7 +97,7 @@ var zhyd = window.zhyd || {
         });
     },
     initValidator: function () {
-        "undefined" != typeof validator && (console.log("zhyd.initValidator"), validator.message.date = "not a real date", $("form").on("blur", "input[required], input.optional, select.required", validator.checkField).on("change", "select.required", validator.checkField).on("keypress", "input[required][pattern]", validator.keypress), $(".multi.required").on("keyup blur", "input", function () {
+        "undefined" != typeof validator && (console.log("nicky.initValidator"), validator.message.date = "not a real date", $("form").on("blur", "input[required], input.optional, select.required", validator.checkField).on("change", "select.required", validator.checkField).on("keypress", "input[required][pattern]", validator.keypress), $(".multi.required").on("keyup blur", "input", function () {
             validator.checkField.apply($(this).siblings().last()[0])
         }), $("form").submit(function (a) {
             a.preventDefault();
@@ -220,8 +220,8 @@ $.fn.popover.Constructor.prototype.leave = function (a) {
 }), $(document).ready(function () {
     // 图片预览
     $(".showImage").fancybox();
-    zhyd.initDaterangepicker();
-    zhyd.initValidator();
-    zhyd.initSidebar();
-    $("select.zydSelect").zydSelect();
+    nicky.initDaterangepicker();
+    nicky.initValidator();
+    nicky.initSidebar();
+    $("select.nickySelect").nickySelect();
 });

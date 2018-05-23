@@ -7,7 +7,7 @@
         </encoder>
     </appender>
     <logger name="org.springframework.core.env" level="ERROR"/>
-    <logger name="com.zyd.shiro" level="INFO"/>
+    <logger name="com.nicky.shiro" level="INFO"/>
 
     <!--控制台打印资源加载信息 -->
     <root level="INFO">
