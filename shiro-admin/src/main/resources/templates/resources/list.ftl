@@ -61,7 +61,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-6">
                             <select id="parentId" name="parentId" class="form-control col-md-5 col-xs-5">
                                 <option value="">请选择</option>
-                                <@zhydTag method="availableMenus">
+                                <@nickyTag method="availableMenus">
                                     <#if availableMenus?? && availableMenus?size gt 0>
                                         <#list availableMenus as item>
                                             <option value="${item.id?c}">${item.name}</option>
@@ -74,7 +74,7 @@
                                     <#else>
                                         <option value="">无</option>
                                     </#if>
-                                </@zhydTag>
+                                </@nickyTag>
                             </select>
                         </div>
                     </div>

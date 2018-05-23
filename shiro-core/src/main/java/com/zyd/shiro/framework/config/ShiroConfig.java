@@ -1,22 +1,3 @@
-/**
- * MIT License
- * Copyright (c) 2018 yadong.zhang
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
 package com.zyd.shiro.framework.config;
 
 import com.zyd.shiro.business.service.ShiroService;
@@ -47,10 +28,8 @@ import java.util.Map;
 
 /**
  * Shiro配置类
- *
  * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
-
  * @date 2018/4/24 14:37
  * @since 1.0
  */
@@ -102,6 +81,8 @@ public class ShiroConfig {
         return creator;
     }
 
+
+
     @Bean(name = "securityManager")
     public SecurityManager securityManager(@Qualifier("shiroRealm") ShiroRealm authRealm) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
@@ -126,9 +107,6 @@ public class ShiroConfig {
      * 凭证匹配器
      * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了
      * 所以我们需要修改下doGetAuthenticationInfo中的代码;
-     * ）
-     *
-     * @return
      */
     @Bean(name = "credentialsMatcher")
     public RetryLimitCredentialsMatcher credentialsMatcher() {
@@ -140,8 +118,6 @@ public class ShiroConfig {
      * 开启shiro aop注解支持.
      * 使用代理方式;所以需要开启代码支持;
      *
-     * @param securityManager
-     * @return
      */
     @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
@@ -154,7 +130,6 @@ public class ShiroConfig {
      * 配置shiro redisManager
      * 使用的是shiro-redis开源插件
      *
-     * @return
      */
     public RedisManager redisManager() {
         RedisManager redisManager = new RedisManager();
@@ -169,8 +144,6 @@ public class ShiroConfig {
     /**
      * cacheManager 缓存 redis实现
      * 使用的是shiro-redis开源插件
-     *
-     * @return
      */
     @Bean
     public RedisCacheManager redisCacheManager() {
@@ -203,8 +176,6 @@ public class ShiroConfig {
 
     /**
      * cookie对象;
-     *
-     * @return
      */
     public SimpleCookie rememberMeCookie() {
         //这个参数是cookie的名称，对应前端的checkbox的name = rememberMe
@@ -216,8 +187,6 @@ public class ShiroConfig {
 
     /**
      * cookie管理对象;记住我功能
-     *
-     * @return
      */
     public CookieRememberMeManager rememberMeManager() {
         CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
