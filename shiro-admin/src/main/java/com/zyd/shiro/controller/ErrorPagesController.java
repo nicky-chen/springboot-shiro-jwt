@@ -48,8 +48,6 @@ public class ErrorPagesController implements ErrorController {
 
     /**
      * 初始化ExceptionController
-     *
-     * @param errorAttributes
      */
     @Autowired
     public ErrorPagesController(ErrorAttributes errorAttributes) {
@@ -118,10 +116,6 @@ public class ErrorPagesController implements ErrorController {
 
     /**
      * 获取错误的信息
-     *
-     * @param request
-     * @param includeStackTrace
-     * @return
      */
     private Map<String, Object> getErrorAttributes(HttpServletRequest request,
                                                    boolean includeStackTrace) {
@@ -132,9 +126,6 @@ public class ErrorPagesController implements ErrorController {
 
     /**
      * 是否包含trace
-     *
-     * @param request
-     * @return
      */
     private boolean getTraceParameter(HttpServletRequest request) {
         String parameter = request.getParameter("trace");
@@ -143,9 +134,6 @@ public class ErrorPagesController implements ErrorController {
 
     /**
      * 获取错误编码
-     *
-     * @param request
-     * @return
      */
     private HttpStatus getStatus(HttpServletRequest request) {
         Integer statusCode = (Integer) request
@@ -163,8 +151,6 @@ public class ErrorPagesController implements ErrorController {
 
     /**
      * 实现错误路径,暂时无用
-     *
-     * @return
      */
     @Override
     public String getErrorPath() {
