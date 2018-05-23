@@ -20,7 +20,7 @@
 package com.zyd.shiro.business.service;
 
 
-import com.zyd.shiro.business.entity.UserRoleBO;
+import com.zyd.shiro.business.entity.bo.UserRoleBO;
 import com.zyd.shiro.framework.object.AbstractService;
 
 /**

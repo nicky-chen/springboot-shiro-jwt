@@ -1,7 +1,7 @@
 
 package com.zyd.shiro.business.service;
 
-import com.zyd.shiro.business.entity.UserBO;
+import com.zyd.shiro.business.entity.bo.UserBO;
 
 import java.util.Map;
 

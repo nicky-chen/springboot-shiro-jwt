@@ -1,7 +1,7 @@
 package com.zyd.shiro.business.shiro.credentials;
 
 import com.zyd.shiro.business.consts.SessionConst;
-import com.zyd.shiro.business.entity.UserBO;
+import com.zyd.shiro.business.entity.bo.UserBO;
 import com.zyd.shiro.business.service.SysUserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AccountException;

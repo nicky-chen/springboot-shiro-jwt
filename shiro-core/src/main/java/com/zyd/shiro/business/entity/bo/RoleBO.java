@@ -17,7 +17,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.zyd.shiro.business.entity;
+package com.zyd.shiro.business.entity.bo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zyd.shiro.persistence.beans.SysRole;

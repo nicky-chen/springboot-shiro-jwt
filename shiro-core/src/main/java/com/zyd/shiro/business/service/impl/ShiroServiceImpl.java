@@ -19,8 +19,8 @@
  */
 package com.zyd.shiro.business.service.impl;
 
-import com.zyd.shiro.business.entity.ResourcesBO;
-import com.zyd.shiro.business.entity.UserBO;
+import com.zyd.shiro.business.entity.bo.ResourcesBO;
+import com.zyd.shiro.business.entity.bo.UserBO;
 import com.zyd.shiro.business.service.ShiroService;
 import com.zyd.shiro.business.service.SysResourcesService;
 import com.zyd.shiro.business.service.SysUserService;

@@ -21,7 +21,7 @@ package com.zyd.shiro.business.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.zyd.shiro.business.entity.ResourcesBO;
+import com.zyd.shiro.business.entity.bo.ResourcesBO;
 import com.zyd.shiro.business.service.SysResourcesService;
 import com.zyd.shiro.business.vo.ResourceConditionVO;
 import com.zyd.shiro.persistence.beans.SysResources;

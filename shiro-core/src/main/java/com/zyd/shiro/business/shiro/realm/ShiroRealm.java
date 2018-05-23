@@ -19,9 +19,9 @@
  */
 package com.zyd.shiro.business.shiro.realm;
 
-import com.zyd.shiro.business.entity.ResourcesBO;
-import com.zyd.shiro.business.entity.RoleBO;
-import com.zyd.shiro.business.entity.UserBO;
+import com.zyd.shiro.business.entity.bo.ResourcesBO;
+import com.zyd.shiro.business.entity.bo.RoleBO;
+import com.zyd.shiro.business.entity.bo.UserBO;
 import com.zyd.shiro.business.enums.UserStatusEnum;
 import com.zyd.shiro.business.service.SysResourcesService;
 import com.zyd.shiro.business.service.SysRoleService;

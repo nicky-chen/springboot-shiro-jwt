@@ -21,7 +21,7 @@ package com.zyd.shiro.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.zyd.shiro.business.entity.ResourcesBO;
+import com.zyd.shiro.business.entity.bo.ResourcesBO;
 import com.zyd.shiro.business.enums.ResponseStatus;
 import com.zyd.shiro.business.service.ShiroService;
 import com.zyd.shiro.business.service.SysResourcesService;

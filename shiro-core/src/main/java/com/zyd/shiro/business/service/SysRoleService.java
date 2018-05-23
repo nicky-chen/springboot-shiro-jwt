@@ -21,7 +21,7 @@ package com.zyd.shiro.business.service;
 
 
 import com.github.pagehelper.PageInfo;
-import com.zyd.shiro.business.entity.RoleBO;
+import com.zyd.shiro.business.entity.bo.RoleBO;
 import com.zyd.shiro.business.vo.RoleConditionVO;
 import com.zyd.shiro.framework.object.AbstractService;
 

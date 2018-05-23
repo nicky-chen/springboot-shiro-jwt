@@ -3,7 +3,7 @@ package com.zyd.shiro.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.zyd.shiro.business.entity.UserBO;
+import com.zyd.shiro.business.entity.bo.UserBO;
 import com.zyd.shiro.business.enums.ResponseStatus;
 import com.zyd.shiro.business.service.SysUserRoleService;
 import com.zyd.shiro.business.service.SysUserService;

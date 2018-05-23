@@ -2,7 +2,7 @@ package com.zyd.shiro.business.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.zyd.shiro.business.entity.UserBO;
+import com.zyd.shiro.business.entity.bo.UserBO;
 import com.zyd.shiro.business.enums.UserStatusEnum;
 import com.zyd.shiro.business.service.SysRoleService;
 import com.zyd.shiro.business.service.SysUserService;

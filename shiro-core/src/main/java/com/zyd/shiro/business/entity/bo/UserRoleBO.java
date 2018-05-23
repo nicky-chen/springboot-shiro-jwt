@@ -1,5 +1,5 @@
 
-package com.zyd.shiro.business.entity;
+package com.zyd.shiro.business.entity.bo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zyd.shiro.persistence.beans.SysUserRole;

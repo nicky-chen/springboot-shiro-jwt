@@ -19,7 +19,7 @@
  */
 package com.zyd.shiro.business.service.impl;
 
-import com.zyd.shiro.business.entity.RoleResourcesBO;
+import com.zyd.shiro.business.entity.bo.RoleResourcesBO;
 import com.zyd.shiro.business.service.SysRoleResourcesService;
 import com.zyd.shiro.persistence.beans.SysRoleResources;
 import com.zyd.shiro.persistence.mapper.SysRoleResourcesMapper;

@@ -1,7 +1,7 @@
 
 package com.zyd.shiro.business.vo;
 
-import com.zyd.shiro.business.entity.UserBO;
+import com.zyd.shiro.business.entity.bo.UserBO;
 import com.zyd.shiro.framework.object.BaseConditionVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

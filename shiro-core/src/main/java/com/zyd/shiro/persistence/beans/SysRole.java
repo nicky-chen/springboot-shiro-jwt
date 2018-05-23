@@ -30,7 +30,8 @@ public class SysRole extends AbstractDO implements AdapteeTarget {
 
     private Boolean available;
 
-    @Transient private Integer selected;
+    @Transient
+    private Integer selected;
 
 
     @Override

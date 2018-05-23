@@ -20,7 +20,7 @@
 package com.zyd.shiro.business.service;
 
 import com.github.pagehelper.PageInfo;
-import com.zyd.shiro.business.entity.ResourcesBO;
+import com.zyd.shiro.business.entity.bo.ResourcesBO;
 import com.zyd.shiro.business.vo.ResourceConditionVO;
 import com.zyd.shiro.framework.object.AbstractService;
 

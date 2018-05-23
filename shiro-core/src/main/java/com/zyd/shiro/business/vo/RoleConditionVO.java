@@ -1,6 +1,6 @@
 package com.zyd.shiro.business.vo;
 
-import com.zyd.shiro.business.entity.RoleBO;
+import com.zyd.shiro.business.entity.bo.RoleBO;
 import com.zyd.shiro.framework.object.BaseConditionVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

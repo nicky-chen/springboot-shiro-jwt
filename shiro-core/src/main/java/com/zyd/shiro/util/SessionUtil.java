@@ -2,7 +2,7 @@
 package com.zyd.shiro.util;
 
 import com.zyd.shiro.business.consts.SessionConst;
-import com.zyd.shiro.business.entity.UserBO;
+import com.zyd.shiro.business.entity.bo.UserBO;
 import com.zyd.shiro.framework.holder.RequestHolder;
 
 import java.util.UUID;
