@@ -2,6 +2,7 @@ package com.zyd.shiro.persistence.beans;
 
 import com.zyd.shiro.framework.object.AbstractDO;
 import com.zyd.shiro.persistence.adapter.AdapteeTarget;
+import com.zyd.shiro.persistence.adapter.StringAdapter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,6 +35,7 @@ public class SysRole extends AbstractDO implements AdapteeTarget {
 
     @Override
     public String toString() {
-        return this.builderToString(1 << 7);
+        AdapteeTarget target = new StringAdapter<>(this, 1 << 7);
+        return target.toString();
     }
 }

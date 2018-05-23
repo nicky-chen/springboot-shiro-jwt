@@ -3,10 +3,14 @@ package com.zyd.shiro.persistence.beans;
 
 import com.zyd.shiro.framework.object.AbstractDO;
 import com.zyd.shiro.persistence.adapter.AdapteeTarget;
+import com.zyd.shiro.persistence.adapter.DefaultValueAdapter;
 import lombok.*;
 
 import javax.persistence.Transient;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author nicky_chin [shuilianpiying@163.com]
@@ -53,6 +57,15 @@ public class SysResources extends AbstractDO implements AdapteeTarget {
 
     @Override
     public String toString() {
-        return this.builderToString(1 << 10);
+        Map<Class, Object> map = new HashMap<>(5);
+        map.put(Boolean.class, false);
+        map.put(Long.class, -1L);
+        map.put(List.class, new ArrayList<>(1));
+        AdapteeTarget target = new DefaultValueAdapter<>(this, 1 << 10, map);
+        return target.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new SysResources());
     }
 }
