@@ -1,6 +1,7 @@
 package com.zyd.shiro.persistence.beans;
 
 import com.zyd.shiro.framework.object.AbstractDO;
+import com.zyd.shiro.persistence.adapter.AdapteeTarget;
 import lombok.*;
 
 import java.util.Date;
@@ -17,7 +18,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false, of = {"username", "mobile"})
-public class SysUser extends AbstractDO {
+public class SysUser extends AbstractDO implements AdapteeTarget {
 
     private static final long serialVersionUID = 1761095260409301116L;
 
@@ -55,26 +56,6 @@ public class SysUser extends AbstractDO {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder(1 << 10);
-        sb.append("SysUser{");
-        sb.append("username=").append(username);
-        sb.append(super.toString());
-        sb.append(", password=").append(password);
-        sb.append(", nickname=").append(nickname);
-        sb.append(", mobile=").append(mobile);
-        sb.append(", email=").append(email);
-        sb.append(", qq=").append(qq);
-        sb.append(", birthday=").append(birthday);
-        sb.append(", gender=").append(gender);
-        sb.append(", avatar=").append(avatar);
-        sb.append(", userType=").append(userType);
-        sb.append(", regIp=").append(regIp);
-        sb.append(", lastLoginIp=").append(lastLoginIp);
-        sb.append(", lastLoginTime=").append(lastLoginTime);
-        sb.append(", loginCount=").append(loginCount);
-        sb.append(", remark=").append(remark);
-        sb.append(", status=").append(status);
-        sb.append('}');
-        return sb.toString();
+        return this.builderToString(1 << 10);
     }
 }

@@ -32,12 +32,4 @@ public abstract class AbstractDO implements Serializable {
 
     private Date updateTime;
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder(1 << 4);
-        sb.append(", id=").append(id);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        return sb.toString();
-    }
 }

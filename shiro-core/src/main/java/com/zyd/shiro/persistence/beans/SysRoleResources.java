@@ -1,6 +1,7 @@
 package com.zyd.shiro.persistence.beans;
 
 import com.zyd.shiro.framework.object.AbstractDO;
+import com.zyd.shiro.persistence.adapter.AdapteeTarget;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SysRoleResources extends AbstractDO {
+public class SysRoleResources extends AbstractDO implements AdapteeTarget {
 
     private static final long serialVersionUID = -6781285067215766581L;
 
@@ -26,13 +27,7 @@ public class SysRoleResources extends AbstractDO {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("SysRoleResources{");
-        sb.append("roleId=").append(roleId);
-        sb.append(super.toString());
-        sb.append(", resourcesId=").append(resourcesId);
-        sb.append('}');
-        return sb.toString();
+        return this.builderToString(1 << 6);
     }
 
 
