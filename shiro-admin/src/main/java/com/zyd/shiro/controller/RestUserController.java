@@ -21,10 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 用户管理
- *
  * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
-
  * @date 2018/4/24 14:37
  * @since 1.0
  */
@@ -50,7 +48,6 @@ public class RestUserController {
      * @param roleIds
      *         用户角色
      *         此处获取的参数的角色id是以 “,” 分隔的字符串
-     * @return
      */
     @PostMapping("/saveUserRoles")
     public ResponseVO saveUserRoles(Long userId, String roleIds) {
