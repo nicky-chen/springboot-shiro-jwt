@@ -21,7 +21,7 @@ package com.zyd.shiro.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.zyd.shiro.business.entity.Role;
+import com.zyd.shiro.business.entity.RoleBO;
 import com.zyd.shiro.business.enums.ResponseStatus;
 import com.zyd.shiro.business.service.ShiroService;
 import com.zyd.shiro.business.service.SysRoleResourcesService;
@@ -61,12 +61,12 @@ public class RestRoleController {
     @PostMapping("/list")
     public PageResult getAll(RoleConditionVO vo) {
         PageHelper.startPage(vo.getPageNumber() - 1, vo.getPageSize());
-        PageInfo<Role> pageInfo = roleService.findPageBreakByCondition(vo);
+        PageInfo<RoleBO> pageInfo = roleService.findPageBreakByCondition(vo);
         return ResultUtil.tablePage(pageInfo);
     }
 
     @PostMapping("/rolesWithSelected")
-    public ResponseVO<List<Role>> rolesWithSelected(Integer uid) {
+    public ResponseVO<List<RoleBO>> rolesWithSelected(Integer uid) {
         return ResultUtil.success(null, roleService.queryRoleListWithSelected(uid));
     }
 
@@ -82,7 +82,7 @@ public class RestRoleController {
     }
 
     @PostMapping(value = "/add")
-    public ResponseVO add(Role role) {
+    public ResponseVO add(RoleBO role) {
         roleService.insert(role);
         return ResultUtil.success("成功");
     }
@@ -105,7 +105,7 @@ public class RestRoleController {
     }
 
     @PostMapping("/edit")
-    public ResponseVO edit(Role role) {
+    public ResponseVO edit(RoleBO role) {
         try {
             roleService.updateSelective(role);
         } catch (Exception e) {

@@ -21,7 +21,7 @@ package com.zyd.shiro.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.zyd.shiro.business.entity.Resources;
+import com.zyd.shiro.business.entity.ResourcesBO;
 import com.zyd.shiro.business.enums.ResponseStatus;
 import com.zyd.shiro.business.service.ShiroService;
 import com.zyd.shiro.business.service.SysResourcesService;
@@ -56,7 +56,7 @@ public class RestResourcesController {
     @PostMapping("/list")
     public PageResult getAll(ResourceConditionVO vo) {
         PageHelper.startPage(vo.getPageNumber() - 1, vo.getPageSize());
-        PageInfo<Resources> pageInfo = resourcesService.findPageBreakByCondition(vo);
+        PageInfo<ResourcesBO> pageInfo = resourcesService.findPageBreakByCondition(vo);
         return ResultUtil.tablePage(pageInfo);
     }
 
@@ -66,7 +66,7 @@ public class RestResourcesController {
     }
 
     @PostMapping(value = "/add")
-    public ResponseVO add(Resources resources) {
+    public ResponseVO add(ResourcesBO resources) {
         resourcesService.insert(resources);
         //更新权限
         shiroService.updatePermission();
@@ -93,7 +93,7 @@ public class RestResourcesController {
     }
 
     @PostMapping("/edit")
-    public ResponseVO edit(Resources resources) {
+    public ResponseVO edit(ResourcesBO resources) {
         try {
             resourcesService.updateSelective(resources);
         } catch (Exception e) {

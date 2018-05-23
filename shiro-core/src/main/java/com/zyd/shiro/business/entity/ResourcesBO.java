@@ -14,14 +14,16 @@ import java.util.List;
  * @date 2018/4/16 16:26
  * @since 1.0
  */
-public class Resources {
+
+public class ResourcesBO {
+
     private SysResources sysResources;
 
-    public Resources() {
+    public ResourcesBO() {
         this.sysResources = new SysResources();
     }
 
-    public Resources(SysResources sysResources) {
+    public ResourcesBO(SysResources sysResources) {
         this.sysResources = sysResources;
     }
 

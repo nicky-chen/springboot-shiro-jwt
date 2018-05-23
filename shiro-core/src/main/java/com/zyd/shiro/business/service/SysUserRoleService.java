@@ -20,7 +20,7 @@
 package com.zyd.shiro.business.service;
 
 
-import com.zyd.shiro.business.entity.UserRole;
+import com.zyd.shiro.business.entity.UserRoleBO;
 import com.zyd.shiro.framework.object.AbstractService;
 
 /**
@@ -32,7 +32,7 @@ import com.zyd.shiro.framework.object.AbstractService;
  * @date 2018/4/16 16:26
  * @since 1.0
  */
-public interface SysUserRoleService extends AbstractService<UserRole, Long> {
+public interface SysUserRoleService extends AbstractService<UserRoleBO, Long> {
 
     /**
      * 添加用户角色

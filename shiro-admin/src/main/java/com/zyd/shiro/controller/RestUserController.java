@@ -1,27 +1,9 @@
-/**
- * MIT License
- * Copyright (c) 2018 yadong.zhang
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+
 package com.zyd.shiro.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.zyd.shiro.business.entity.User;
+import com.zyd.shiro.business.entity.UserBO;
 import com.zyd.shiro.business.enums.ResponseStatus;
 import com.zyd.shiro.business.service.SysUserRoleService;
 import com.zyd.shiro.business.service.SysUserService;
@@ -57,7 +39,7 @@ public class RestUserController {
     @PostMapping("/list")
     public PageResult list(UserConditionVO vo) {
         PageHelper.startPage(vo.getPageNumber() - 1, vo.getPageSize());
-        PageInfo<User> pageInfo = userService.findPageBreakByCondition(vo);
+        PageInfo<UserBO> pageInfo = userService.findPageBreakByCondition(vo);
         return ResultUtil.tablePage(pageInfo);
     }
 
@@ -80,8 +62,8 @@ public class RestUserController {
     }
 
     @PostMapping(value = "/add")
-    public ResponseVO add(User user) {
-        User u = userService.getByUserName(user.getUsername());
+    public ResponseVO add(UserBO user) {
+        UserBO u = userService.getByUserName(user.getUsername());
         if (u != null) {
             return ResultUtil.error("该用户名[" + user.getUsername() + "]已存在！请更改用户名");
         }
@@ -113,7 +95,7 @@ public class RestUserController {
     }
 
     @PostMapping("/edit")
-    public ResponseVO edit(User user) {
+    public ResponseVO edit(UserBO user) {
         try {
             userService.updateSelective(user);
         } catch (Exception e) {

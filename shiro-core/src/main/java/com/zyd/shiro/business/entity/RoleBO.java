@@ -31,14 +31,15 @@ import java.util.Date;
  * @date 2018/4/16 16:26
  * @since 1.0
  */
-public class Role {
+public class RoleBO {
+
     private SysRole sysRole;
 
-    public Role() {
+    public RoleBO() {
         this.sysRole = new SysRole();
     }
 
-    public Role(SysRole sysRole) {
+    public RoleBO(SysRole sysRole) {
         this.sysRole = sysRole;
     }
 

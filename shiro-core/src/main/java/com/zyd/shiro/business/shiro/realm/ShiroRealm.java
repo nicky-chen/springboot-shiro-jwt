@@ -19,9 +19,9 @@
  */
 package com.zyd.shiro.business.shiro.realm;
 
-import com.zyd.shiro.business.entity.Resources;
-import com.zyd.shiro.business.entity.Role;
-import com.zyd.shiro.business.entity.User;
+import com.zyd.shiro.business.entity.ResourcesBO;
+import com.zyd.shiro.business.entity.RoleBO;
+import com.zyd.shiro.business.entity.UserBO;
 import com.zyd.shiro.business.enums.UserStatusEnum;
 import com.zyd.shiro.business.service.SysResourcesService;
 import com.zyd.shiro.business.service.SysRoleService;
@@ -64,7 +64,7 @@ public class ShiroRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         //获取用户的输入的账号.
         String username = (String) token.getPrincipal();
-        User user = userService.getByUserName(username);
+        UserBO user = userService.getByUserName(username);
         if (user == null) {
             throw new UnknownAccountException("账号不存在！");
         }
@@ -92,15 +92,15 @@ public class ShiroRealm extends AuthorizingRealm {
         Long userId = (Long) SecurityUtils.getSubject().getPrincipal();
 
         // 赋予角色
-        List<Role> roleList = roleService.listRolesByUserId(userId);
-        for (Role role : roleList) {
+        List<RoleBO> roleList = roleService.listRolesByUserId(userId);
+        for (RoleBO role : roleList) {
             info.addRole(role.getName());
         }
 
         // 赋予权限
-        List<Resources> resourcesList = resourcesService.listByUserId(userId);
+        List<ResourcesBO> resourcesList = resourcesService.listByUserId(userId);
         if (!CollectionUtils.isEmpty(resourcesList)) {
-            for (Resources resources : resourcesList) {
+            for (ResourcesBO resources : resourcesList) {
                 String permission = resources.getPermission();
                 System.out.println(resources.getName() + "   " + permission);
                 if (!StringUtils.isEmpty(permission)) {

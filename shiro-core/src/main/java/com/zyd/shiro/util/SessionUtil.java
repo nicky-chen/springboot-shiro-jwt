@@ -2,7 +2,7 @@
 package com.zyd.shiro.util;
 
 import com.zyd.shiro.business.consts.SessionConst;
-import com.zyd.shiro.business.entity.User;
+import com.zyd.shiro.business.entity.UserBO;
 import com.zyd.shiro.framework.holder.RequestHolder;
 
 import java.util.UUID;
@@ -19,23 +19,23 @@ public class SessionUtil {
 
     /**
      * 获取session中的用户信息
-     * @return User
+     * @return UserBO
      */
-    public static User getUser() {
-        return (User) RequestHolder.getSession(SessionConst.USER_SESSION_KEY);
+    public static UserBO getUserBO() {
+        return (UserBO) RequestHolder.getSession(SessionConst.USER_SESSION_KEY);
     }
 
     /**
      * 添加session
      */
-    public static void setUser(User user) {
+    public static void setUserBO(UserBO user) {
         RequestHolder.setSession(SessionConst.USER_SESSION_KEY, user);
     }
 
     /**
      * 删除session信息
      */
-    public static void removeUser() {
+    public static void removeUserBO() {
         RequestHolder.removeSession(SessionConst.USER_SESSION_KEY);
     }
 

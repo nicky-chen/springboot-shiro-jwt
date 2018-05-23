@@ -1,27 +1,8 @@
-/**
- * MIT License
- * Copyright (c) 2018 yadong.zhang
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
 package com.zyd.shiro.business.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.zyd.shiro.business.entity.User;
+import com.zyd.shiro.business.entity.UserBO;
 import com.zyd.shiro.business.enums.UserStatusEnum;
 import com.zyd.shiro.business.service.SysRoleService;
 import com.zyd.shiro.business.service.SysUserService;
@@ -67,8 +48,8 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public User insert(User user) {
-        Assert.notNull(user, "User不可为空！");
+    public UserBO insert(UserBO user) {
+        Assert.notNull(user, "UserBO不可为空！");
         user.setUpdateTime(new Date());
         user.setCreateTime(new Date());
         user.setRegIp(IpUtil.getRealIp(RequestHolder.getRequest()));
@@ -79,11 +60,11 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void insertList(List<User> users) {
-        Assert.notNull(users, "Users不可为空！");
+    public void insertList(List<UserBO> users) {
+        Assert.notNull(users, "UserBOs不可为空！");
         List<SysUser> sysUsers = new ArrayList<>();
         String regIp = IpUtil.getRealIp(RequestHolder.getRequest());
-        for (User user : users) {
+        for (UserBO user : users) {
             user.setUpdateTime(new Date());
             user.setCreateTime(new Date());
             user.setRegIp(regIp);
@@ -106,7 +87,7 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean update(User user) {
+    public boolean update(UserBO user) {
         Assert.notNull(user, "User不可为空！");
         user.setUpdateTime(new Date());
         if (!StringUtils.isEmpty(user.getPassword())) {
@@ -121,7 +102,7 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean updateSelective(User user) {
+    public boolean updateSelective(UserBO user) {
         Assert.notNull(user, "User不可为空！");
         user.setUpdateTime(new Date());
         if (!StringUtils.isEmpty(user.getPassword())) {
@@ -145,10 +126,10 @@ public class SysUserServiceImpl implements SysUserService {
      */
 
     @Override
-    public User getByPrimaryKey(Long primaryKey) {
+    public UserBO getByPrimaryKey(Long primaryKey) {
         Assert.notNull(primaryKey, "PrimaryKey不可为空！");
         SysUser sysUser = sysUserMapper.selectByPrimaryKey(primaryKey);
-        return null == sysUser ? null : new User(sysUser);
+        return null == sysUser ? null : new UserBO(sysUser);
     }
 
     /**
@@ -158,36 +139,36 @@ public class SysUserServiceImpl implements SysUserService {
      * @return
      */
     @Override
-    public User getOneByEntity(User entity) {
+    public UserBO getOneByEntity(UserBO entity) {
         Assert.notNull(entity, "User不可为空！");
         SysUser sysUser = sysUserMapper.selectOne(entity.getSysUser());
-        return null == sysUser ? null : new User(sysUser);
+        return null == sysUser ? null : new UserBO(sysUser);
     }
 
     @Override
-    public List<User> listAll() {
+    public List<UserBO> listAll() {
         List<SysUser> sysUsers = sysUserMapper.selectAll();
 
         if (CollectionUtils.isEmpty(sysUsers)) {
             return null;
         }
-        List<User> users = new ArrayList<>();
+        List<UserBO> users = new ArrayList<>();
         for (SysUser sysUser : sysUsers) {
-            users.add(new User(sysUser));
+            users.add(new UserBO(sysUser));
         }
         return users;
     }
 
     @Override
-    public List<User> listByEntity(User user) {
+    public List<UserBO> listByEntity(UserBO user) {
         Assert.notNull(user, "User不可为空！");
         List<SysUser> sysUsers = sysUserMapper.select(user.getSysUser());
         if (CollectionUtils.isEmpty(sysUsers)) {
             return null;
         }
-        List<User> users = new ArrayList<>();
+        List<UserBO> users = new ArrayList<>();
         for (SysUser su : sysUsers) {
-            users.add(new User(su));
+            users.add(new UserBO(su));
         }
         return users;
     }
@@ -199,15 +180,15 @@ public class SysUserServiceImpl implements SysUserService {
      * @return
      */
     @Override
-    public PageInfo<User> findPageBreakByCondition(UserConditionVO vo) {
+    public PageInfo<UserBO> findPageBreakByCondition(UserConditionVO vo) {
         PageHelper.startPage(vo.getPageNumber(), vo.getPageSize());
         List<SysUser> sysUsers = sysUserMapper.findPageBreakByCondition(vo);
         if (CollectionUtils.isEmpty(sysUsers)) {
             return null;
         }
-        List<User> users = new ArrayList<>();
+        List<UserBO> users = new ArrayList<>();
         for (SysUser su : sysUsers) {
-            users.add(new User(su));
+            users.add(new UserBO(su));
         }
         PageInfo bean = new PageInfo<SysUser>(sysUsers);
         bean.setList(users);
@@ -221,7 +202,7 @@ public class SysUserServiceImpl implements SysUserService {
      * @return
      */
     @Override
-    public User updateUserLastLoginInfo(User user) {
+    public UserBO updateUserLastLoginInfo(UserBO user) {
         if (user != null) {
             user.setLoginCount(user.getLoginCount() + 1);
             user.setLastLoginTime(new Date());
@@ -239,8 +220,8 @@ public class SysUserServiceImpl implements SysUserService {
      * @return
      */
     @Override
-    public User getByUserName(String userName) {
-        User user = new User(userName, null);
+    public UserBO getByUserName(String userName) {
+        UserBO user = new UserBO(userName, null);
         return getOneByEntity(user);
     }
 
@@ -251,14 +232,14 @@ public class SysUserServiceImpl implements SysUserService {
      * @return
      */
     @Override
-    public List<User> listByRoleId(Long roleId) {
+    public List<UserBO> listByRoleId(Long roleId) {
         List<SysUser> sysUsers = sysUserMapper.listByRoleId(roleId);
         if (CollectionUtils.isEmpty(sysUsers)) {
             return null;
         }
-        List<User> users = new ArrayList<>();
+        List<UserBO> users = new ArrayList<>();
         for (SysUser su : sysUsers) {
-            users.add(new User(su));
+            users.add(new UserBO(su));
         }
         return users;
     }

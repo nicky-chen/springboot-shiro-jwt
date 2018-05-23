@@ -20,7 +20,7 @@
 package com.zyd.shiro.business.service;
 
 import com.github.pagehelper.PageInfo;
-import com.zyd.shiro.business.entity.Resources;
+import com.zyd.shiro.business.entity.ResourcesBO;
 import com.zyd.shiro.business.vo.ResourceConditionVO;
 import com.zyd.shiro.framework.object.AbstractService;
 
@@ -36,7 +36,7 @@ import java.util.Map;
  * @date 2018/4/16 16:26
  * @since 1.0
  */
-public interface SysResourcesService extends AbstractService<Resources, Long> {
+public interface SysResourcesService extends AbstractService<ResourcesBO, Long> {
 
     /**
      * 分页查询
@@ -44,7 +44,7 @@ public interface SysResourcesService extends AbstractService<Resources, Long> {
      * @param vo
      * @return
      */
-    PageInfo<Resources> findPageBreakByCondition(ResourceConditionVO vo);
+    PageInfo<ResourcesBO> findPageBreakByCondition(ResourceConditionVO vo);
 
     /**
      * 获取用户的资源列表
@@ -52,7 +52,7 @@ public interface SysResourcesService extends AbstractService<Resources, Long> {
      * @param map
      * @return
      */
-    List<Resources> listUserResources(Map<String, Object> map);
+    List<ResourcesBO> listUserResources(Map<String, Object> map);
 
     /**
      * 获取ztree使用的资源列表
@@ -67,14 +67,14 @@ public interface SysResourcesService extends AbstractService<Resources, Long> {
      *
      * @return
      */
-    List<Resources> listUrlAndPermission();
+    List<ResourcesBO> listUrlAndPermission();
 
     /**
      * 获取所有可用的菜单资源
      *
      * @return
      */
-    List<Resources> listAllAvailableMenu();
+    List<ResourcesBO> listAllAvailableMenu();
 
     /**
      * 获取父级资源下所有menu资源
@@ -89,5 +89,5 @@ public interface SysResourcesService extends AbstractService<Resources, Long> {
      * @param userId
      * @return
      */
-    List<Resources> listByUserId(Long userId);
+    List<ResourcesBO> listByUserId(Long userId);
 }

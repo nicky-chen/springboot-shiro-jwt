@@ -19,8 +19,8 @@
  */
 package com.zyd.shiro.business.service.impl;
 
-import com.zyd.shiro.business.entity.Resources;
-import com.zyd.shiro.business.entity.User;
+import com.zyd.shiro.business.entity.ResourcesBO;
+import com.zyd.shiro.business.entity.UserBO;
 import com.zyd.shiro.business.service.ShiroService;
 import com.zyd.shiro.business.service.SysResourcesService;
 import com.zyd.shiro.business.service.SysUserService;
@@ -83,8 +83,8 @@ public class ShiroServiceImpl implements ShiroService {
         filterChainDefinitionMap.put("/error", "anon");
         filterChainDefinitionMap.put("/assets/**", "anon");
         // 加载数据库中配置的资源权限列表
-        List<Resources> resourcesList = resourcesService.listUrlAndPermission();
-        for (Resources resources : resourcesList) {
+        List<ResourcesBO> resourcesList = resourcesService.listUrlAndPermission();
+        for (ResourcesBO resources : resourcesList) {
             if (!StringUtils.isEmpty(resources.getUrl()) && !StringUtils.isEmpty(resources.getPermission())) {
                 String permission = "perms[" + resources.getPermission() + "]";
                 filterChainDefinitionMap.put(resources.getUrl(), permission);
@@ -132,7 +132,7 @@ public class ShiroServiceImpl implements ShiroService {
      * @param user
      */
     @Override
-    public void reloadAuthorizingByUserId(User user) {
+    public void reloadAuthorizingByUserId(UserBO user) {
         RealmSecurityManager rsm = (RealmSecurityManager) SecurityUtils.getSecurityManager();
         ShiroRealm shiroRealm = (ShiroRealm) rsm.getRealms().iterator().next();
         Subject subject = SecurityUtils.getSubject();
@@ -153,11 +153,11 @@ public class ShiroServiceImpl implements ShiroService {
      */
     @Override
     public void reloadAuthorizingByRoleId(Long roleId) {
-        List<User> userList = userService.listByRoleId(roleId);
+        List<UserBO> userList = userService.listByRoleId(roleId);
         if (CollectionUtils.isEmpty(userList)) {
             return;
         }
-        for (User user : userList) {
+        for (UserBO user : userList) {
             reloadAuthorizingByUserId(user);
         }
     }

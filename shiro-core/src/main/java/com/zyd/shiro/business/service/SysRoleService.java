@@ -21,7 +21,7 @@ package com.zyd.shiro.business.service;
 
 
 import com.github.pagehelper.PageInfo;
-import com.zyd.shiro.business.entity.Role;
+import com.zyd.shiro.business.entity.RoleBO;
 import com.zyd.shiro.business.vo.RoleConditionVO;
 import com.zyd.shiro.framework.object.AbstractService;
 
@@ -37,7 +37,7 @@ import java.util.Map;
  * @date 2018/4/16 16:26
  * @since 1.0
  */
-public interface SysRoleService extends AbstractService<Role, Long> {
+public interface SysRoleService extends AbstractService<RoleBO, Long> {
 
     /**
      * 获取ztree使用的角色列表
@@ -53,7 +53,7 @@ public interface SysRoleService extends AbstractService<Role, Long> {
      * @param vo
      * @return
      */
-    PageInfo<Role> findPageBreakByCondition(RoleConditionVO vo);
+    PageInfo<RoleBO> findPageBreakByCondition(RoleConditionVO vo);
 
     /**
      * 获取用户的角色
@@ -61,5 +61,5 @@ public interface SysRoleService extends AbstractService<Role, Long> {
      * @param userId
      * @return
      */
-    List<Role> listRolesByUserId(Long userId);
+    List<RoleBO> listRolesByUserId(Long userId);
 }

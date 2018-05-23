@@ -20,7 +20,7 @@
 package com.zyd.shiro.business.service;
 
 
-import com.zyd.shiro.business.entity.RoleResources;
+import com.zyd.shiro.business.entity.RoleResourcesBO;
 import com.zyd.shiro.framework.object.AbstractService;
 
 /**
@@ -32,7 +32,7 @@ import com.zyd.shiro.framework.object.AbstractService;
  * @date 2018/4/16 16:26
  * @since 1.0
  */
-public interface SysRoleResourcesService extends AbstractService<RoleResources, Long> {
+public interface SysRoleResourcesService extends AbstractService<RoleResourcesBO, Long> {
 
     /**
      * 添加角色资源

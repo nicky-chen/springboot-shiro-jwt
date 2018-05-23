@@ -19,7 +19,7 @@
  */
 package com.zyd.shiro.business.service.impl;
 
-import com.zyd.shiro.business.entity.UserRole;
+import com.zyd.shiro.business.entity.UserRoleBO;
 import com.zyd.shiro.business.service.SysUserRoleService;
 import com.zyd.shiro.persistence.beans.SysUserRole;
 import com.zyd.shiro.persistence.mapper.SysUserRoleMapper;
@@ -57,7 +57,7 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
      * @return
      */
     @Override
-    public UserRole insert(UserRole entity) {
+    public UserRoleBO insert(UserRoleBO entity) {
         Assert.notNull(entity, "UserRole不可为空！");
         entity.setCreateTime(new Date());
         entity.setUpdateTime(new Date());
@@ -71,10 +71,10 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
      * @param entities
      */
     @Override
-    public void insertList(List<UserRole> entities) {
+    public void insertList(List<UserRoleBO> entities) {
         Assert.notNull(entities, "entities不可为空！");
         List<SysUserRole> sysUserRole = new ArrayList<>();
-        for (UserRole UserRole : entities) {
+        for (UserRoleBO UserRole : entities) {
             UserRole.setUpdateTime(new Date());
             UserRole.setCreateTime(new Date());
             sysUserRole.add(UserRole.getSysUserRole());
@@ -100,7 +100,7 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
      * @return
      */
     @Override
-    public boolean update(UserRole entity) {
+    public boolean update(UserRoleBO entity) {
         Assert.notNull(entity, "UserRole不可为空！");
         entity.setUpdateTime(new Date());
         return resourceMapper.updateByPrimaryKey(entity.getSysUserRole()) > 0;
@@ -113,7 +113,7 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
      * @return
      */
     @Override
-    public boolean updateSelective(UserRole entity) {
+    public boolean updateSelective(UserRoleBO entity) {
         Assert.notNull(entity, "UserRole不可为空！");
         entity.setUpdateTime(new Date());
         return resourceMapper.updateByPrimaryKeySelective(entity.getSysUserRole()) > 0;
@@ -126,10 +126,10 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
      * @return
      */
     @Override
-    public UserRole getByPrimaryKey(Long primaryKey) {
+    public UserRoleBO getByPrimaryKey(Long primaryKey) {
         Assert.notNull(primaryKey, "PrimaryKey不可为空！");
         SysUserRole sysUserRole = resourceMapper.selectByPrimaryKey(primaryKey);
-        return null == sysUserRole ? null : new UserRole(sysUserRole);
+        return null == sysUserRole ? null : new UserRoleBO(sysUserRole);
     }
 
     /**
@@ -139,10 +139,10 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
      * @return
      */
     @Override
-    public UserRole getOneByEntity(UserRole entity) {
+    public UserRoleBO getOneByEntity(UserRoleBO entity) {
         Assert.notNull(entity, "User不可为空！");
         SysUserRole sysUserRole = resourceMapper.selectOne(entity.getSysUserRole());
-        return null == sysUserRole ? null : new UserRole(sysUserRole);
+        return null == sysUserRole ? null : new UserRoleBO(sysUserRole);
     }
 
     /**
@@ -151,7 +151,7 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
      * @return
      */
     @Override
-    public List<UserRole> listAll() {
+    public List<UserRoleBO> listAll() {
         List<SysUserRole> sysUserRole = resourceMapper.selectAll();
         return getUserRole(sysUserRole);
     }
@@ -163,19 +163,19 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
      * @return
      */
     @Override
-    public List<UserRole> listByEntity(UserRole entity) {
+    public List<UserRoleBO> listByEntity(UserRoleBO entity) {
         Assert.notNull(entity, "UserRole不可为空！");
         List<SysUserRole> sysUserRole = resourceMapper.select(entity.getSysUserRole());
         return getUserRole(sysUserRole);
     }
 
-    private List<UserRole> getUserRole(List<SysUserRole> sysUserRole) {
+    private List<UserRoleBO> getUserRole(List<SysUserRole> sysUserRole) {
         if (CollectionUtils.isEmpty(sysUserRole)) {
             return null;
         }
-        List<UserRole> UserRole = new ArrayList<>();
+        List<UserRoleBO> UserRole = new ArrayList<>();
         for (SysUserRole r : sysUserRole) {
-            UserRole.add(new UserRole(r));
+            UserRole.add(new UserRoleBO(r));
         }
         return UserRole;
     }
@@ -193,10 +193,10 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
         removeByUserId(userId);
         //添加
         String[] roleids = roleIds.split(",");
-        UserRole u = null;
-        List<UserRole> roles = new ArrayList<>();
+        UserRoleBO u = null;
+        List<UserRoleBO> roles = new ArrayList<>();
         for (String roleId : roleids) {
-            u = new UserRole();
+            u = new UserRoleBO();
             u.setUserId(userId);
             u.setRoleId(Long.parseLong(roleId));
             roles.add(u);

@@ -1,6 +1,6 @@
 package com.zyd.shiro.business.vo;
 
-import com.zyd.shiro.business.entity.Role;
+import com.zyd.shiro.business.entity.RoleBO;
 import com.zyd.shiro.framework.object.BaseConditionVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,6 +15,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class RoleConditionVO extends BaseConditionVO {
-    private Role role;
+    private RoleBO role;
 }
 

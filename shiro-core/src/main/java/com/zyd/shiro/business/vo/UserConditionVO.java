@@ -1,7 +1,7 @@
 
 package com.zyd.shiro.business.vo;
 
-import com.zyd.shiro.business.entity.User;
+import com.zyd.shiro.business.entity.UserBO;
 import com.zyd.shiro.framework.object.BaseConditionVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,5 +17,5 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class UserConditionVO extends BaseConditionVO {
-    private User user;
+    private UserBO user;
 }
