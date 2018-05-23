@@ -18,33 +18,21 @@ public interface SysUserService extends AbstractService<UserBO, Long> {
 
     /**
      * 分页查询
-     *
-     * @param vo
-     * @return
      */
     PageInfo<UserBO> findPageBreakByCondition(UserConditionVO vo);
 
     /**
      * 更新用户最后一次登录的状态信息
-     *
-     * @param user
-     * @return
      */
     UserBO updateUserLastLoginInfo(UserBO user);
 
     /**
      * 根据用户名查找
-     *
-     * @param userName
-     * @return
      */
     UserBO getByUserName(String userName);
 
     /**
      * 通过角色Id获取用户列表
-     *
-     * @param roleId
-     * @return
      */
     List<UserBO> listByRoleId(Long roleId);
 

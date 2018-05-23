@@ -10,7 +10,6 @@ import java.util.Map;
  *
  * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
-
  * @date 2018/4/25 14:37
  * @since 1.0
  */
@@ -28,15 +27,11 @@ public interface ShiroService {
 
     /**
      * 重新加载用户权限
-     *
-     * @param user
      */
     void reloadAuthorizingByUserId(UserBO user);
 
     /**
      * 重新加载所有拥有roleId角色的用户的权限
-     *
-     * @param roleId
      */
     void reloadAuthorizingByRoleId(Long roleId);
 

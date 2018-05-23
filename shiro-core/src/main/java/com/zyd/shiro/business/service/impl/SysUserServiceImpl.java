@@ -28,10 +28,8 @@ import java.util.List;
 
 /**
  * 用户
- *
  * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
-
  * @date 2018/4/16 16:26
  * @since 1.0
  */
@@ -75,9 +73,6 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 根据主键字段进行删除，方法参数必须包含完整的主键属性
-     *
-     * @param primaryKey
-     * @return
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -120,9 +115,6 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 根据主键字段进行查询，方法参数必须包含完整的主键属性，查询条件使用等号
-     *
-     * @param primaryKey
-     * @return
      */
 
     @Override
@@ -134,9 +126,6 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 根据实体中的属性进行查询，只能有一个返回值，有多个结果时抛出异常，查询条件使用等号
-     *
-     * @param entity
-     * @return
      */
     @Override
     public UserBO getOneByEntity(UserBO entity) {
@@ -175,9 +164,6 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 分页查询
-     *
-     * @param vo
-     * @return
      */
     @Override
     public PageInfo<UserBO> findPageBreakByCondition(UserConditionVO vo) {
@@ -197,9 +183,6 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 更新用户最后一次登录的状态信息
-     *
-     * @param user
-     * @return
      */
     @Override
     public UserBO updateUserLastLoginInfo(UserBO user) {
@@ -215,9 +198,6 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 根据用户名查找
-     *
-     * @param userName
-     * @return
      */
     @Override
     public UserBO getByUserName(String userName) {
@@ -227,9 +207,6 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 通过角色Id获取用户列表
-     *
-     * @param roleId
-     * @return
      */
     @Override
     public List<UserBO> listByRoleId(Long roleId) {
