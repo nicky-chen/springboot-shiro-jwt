@@ -6,6 +6,7 @@ import com.zyd.shiro.persistence.beans.SysRoleResources;
 import com.zyd.shiro.persistence.mapper.SysRoleResourcesMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -138,7 +139,11 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
      * 添加角色资源
      */
     @Override
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = {Exception.class})
+    @Transactional(
+            propagation = Propagation.REQUIRED,
+            isolation = Isolation.DEFAULT,
+            rollbackFor = { Exception.class },
+            timeout = 5)
     public void addRoleResources(Long roleId, String resourcesId) {
         //删除
         removeByRoleId(roleId);
@@ -164,7 +169,11 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
      * 通过角色id批量删除
      */
     @Override
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = {Exception.class})
+    @Transactional(
+            propagation = Propagation.REQUIRED,
+            isolation = Isolation.READ_COMMITTED,
+            rollbackFor = { Exception.class },
+            timeout = 5)
     public void removeByRoleId(Long roleId) {
         //删除
         Example example = new Example(SysRoleResources.class);

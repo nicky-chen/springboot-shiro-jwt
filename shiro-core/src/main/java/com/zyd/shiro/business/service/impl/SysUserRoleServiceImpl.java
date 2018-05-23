@@ -6,6 +6,7 @@ import com.zyd.shiro.persistence.beans.SysUserRole;
 import com.zyd.shiro.persistence.mapper.SysUserRoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -139,7 +140,11 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
      * 添加用户角色
      */
     @Override
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = {Exception.class})
+    @Transactional(
+            propagation = Propagation.REQUIRED,
+            isolation = Isolation.DEFAULT,
+            readOnly = false,
+            rollbackFor = { Exception.class })
     public void addUserRole(Long userId, String roleIds) {
         //删除
         removeByUserId(userId);
@@ -160,7 +165,11 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
      * 根据用户ID删除用户角色
      */
     @Override
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = {Exception.class})
+    @Transactional(
+            propagation = Propagation.REQUIRED,
+            readOnly = false,
+            rollbackFor = { Exception.class },
+            timeout = 10)
     public void removeByUserId(Long userId) {
         Example example = new Example(SysUserRole.class);
         Example.Criteria criteria = example.createCriteria();
