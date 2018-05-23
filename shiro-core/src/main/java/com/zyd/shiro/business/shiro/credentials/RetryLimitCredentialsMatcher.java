@@ -3,13 +3,12 @@ package com.zyd.shiro.business.shiro.credentials;
 import com.zyd.shiro.business.consts.SessionConst;
 import com.zyd.shiro.business.entity.bo.UserBO;
 import com.zyd.shiro.business.service.SysUserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AccountException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -18,16 +17,13 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Shiro-密码输入错误的状态下重试次数的匹配管理
- *
  * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
-
  * @date 2018/4/24 14:37
  * @since 1.0
  */
+@Slf4j
 public class RetryLimitCredentialsMatcher extends CredentialsMatcher {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(RetryLimitCredentialsMatcher.class);
 
     /**
      * 用户登录次数计数  redisKey 前缀
@@ -46,6 +42,7 @@ public class RetryLimitCredentialsMatcher extends CredentialsMatcher {
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
         Long userId = (Long) info.getPrincipals().getPrimaryPrincipal();
         UserBO user = userService.getByPrimaryKey(userId);
+        log.info("user:{}", user);
         String username = user.getUsername();
         // 访问一次，计数一次
         ValueOperations<String, String> opsForValue = redisTemplate.opsForValue();
