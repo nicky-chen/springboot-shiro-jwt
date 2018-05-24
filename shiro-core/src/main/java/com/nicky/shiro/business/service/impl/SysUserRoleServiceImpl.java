@@ -16,6 +16,7 @@ import tk.mybatis.mapper.entity.Example;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 用户角色
@@ -49,11 +50,11 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
     public void insertList(List<UserRoleBO> entities) {
         Assert.notNull(entities, "entities不可为空！");
         List<SysUserRole> sysUserRole = new ArrayList<>();
-        for (UserRoleBO UserRole : entities) {
-            UserRole.setUpdateTime(new Date());
-            UserRole.setCreateTime(new Date());
-            sysUserRole.add(UserRole.getSysUserRole());
-        }
+        entities.forEach(userRole -> {
+            userRole.setUpdateTime(new Date());
+            userRole.setCreateTime(new Date());
+            sysUserRole.add(userRole.getSysUserRole());
+        });
         resourceMapper.insertList(sysUserRole);
     }
 
@@ -129,11 +130,7 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
         if (CollectionUtils.isEmpty(sysUserRole)) {
             return null;
         }
-        List<UserRoleBO> UserRole = new ArrayList<>();
-        for (SysUserRole r : sysUserRole) {
-            UserRole.add(new UserRoleBO(r));
-        }
-        return UserRole;
+        return sysUserRole.stream().map(UserRoleBO::new).collect(Collectors.toList());
     }
 
     /**
@@ -149,10 +146,10 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
         //删除
         removeByUserId(userId);
         //添加
-        String[] roleids = roleIds.split(",");
-        UserRoleBO u = null;
+        String[] ids = roleIds.split(",");
+        UserRoleBO u;
         List<UserRoleBO> roles = new ArrayList<>();
-        for (String roleId : roleids) {
+        for (String roleId : ids) {
             u = new UserRoleBO();
             u.setUserId(userId);
             u.setRoleId(Long.parseLong(roleId));

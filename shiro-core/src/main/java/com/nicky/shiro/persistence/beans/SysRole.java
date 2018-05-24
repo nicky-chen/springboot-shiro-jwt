@@ -29,6 +29,9 @@ public class SysRole extends AbstractDO {
      */
     private String name;
 
+    /**
+     * 角色描述
+     */
     private String description;
 
     private Boolean available;

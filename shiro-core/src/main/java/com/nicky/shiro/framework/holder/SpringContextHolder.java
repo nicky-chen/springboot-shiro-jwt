@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SpringContextHolder implements ApplicationContextAware {
 
-    private volatile static  ApplicationContext appContext = null;
+    private volatile static ApplicationContext appContext;
 
     /**
      * 通过name获取 Bean.
@@ -42,7 +42,7 @@ public class SpringContextHolder implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         if (appContext == null) {
-            synchronized (appContext) {
+            synchronized (this) {
                 if (appContext == null) {
                     appContext = applicationContext;
                 }

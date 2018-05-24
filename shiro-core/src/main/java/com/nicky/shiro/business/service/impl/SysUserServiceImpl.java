@@ -4,7 +4,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.nicky.shiro.business.entity.bo.UserBO;
 import com.nicky.shiro.business.enums.UserStatusEnum;
-import com.nicky.shiro.business.service.SysRoleService;
 import com.nicky.shiro.business.service.SysUserService;
 import com.nicky.shiro.business.vo.UserConditionVO;
 import com.nicky.shiro.framework.exception.CommonException;
@@ -36,9 +35,6 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Autowired
     private SysUserMapper sysUserMapper;
-
-    @Autowired
-    private SysRoleService roleService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)

@@ -27,6 +27,7 @@ import java.util.List;
  */
 @Service
 public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
+
     @Autowired
     private SysRoleResourcesMapper resourceMapper;
 
@@ -49,11 +50,11 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
     public void insertList(List<RoleResourcesBO> entities) {
         Assert.notNull(entities, "entities不可为空！");
         List<SysRoleResources> sysRoleResources = new ArrayList<>();
-        for (RoleResourcesBO RoleResources : entities) {
-            RoleResources.setUpdateTime(new Date());
-            RoleResources.setCreateTime(new Date());
-            sysRoleResources.add(RoleResources.getSysRoleResources());
-        }
+        entities.forEach(roleResourcesBO -> {
+            roleResourcesBO.setUpdateTime(new Date());
+            roleResourcesBO.setCreateTime(new Date());
+            sysRoleResources.add(roleResourcesBO.getSysRoleResources());
+        });
         resourceMapper.insertList(sysRoleResources);
     }
 
@@ -128,11 +129,11 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
         if (CollectionUtils.isEmpty(sysRoleResources)) {
             return null;
         }
-        List<RoleResourcesBO> RoleResources = new ArrayList<>();
+        List<RoleResourcesBO> roleResources = new ArrayList<>();
         for (SysRoleResources r : sysRoleResources) {
-            RoleResources.add(new RoleResourcesBO(r));
+            roleResources.add(new RoleResourcesBO(r));
         }
-        return RoleResources;
+        return roleResources;
     }
 
     /**
@@ -150,7 +151,7 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
         //添加
         if (!StringUtils.isEmpty(resourcesId)) {
             String[] resourcesArr = resourcesId.split(",");
-            SysRoleResources r = null;
+            SysRoleResources r;
             List<SysRoleResources> roleResources = new ArrayList<>();
             for (String ri : resourcesArr) {
                 r = new SysRoleResources();

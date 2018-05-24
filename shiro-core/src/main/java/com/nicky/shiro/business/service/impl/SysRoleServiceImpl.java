@@ -13,13 +13,12 @@ import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 角色
- *
  * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
-
  * @date 2018/4/16 16:26
  * @since 1.0
  */
@@ -36,12 +35,12 @@ public class SysRoleServiceImpl implements SysRoleService {
     public List<Map<String, Object>> queryRoleListWithSelected(Integer userId) {
         List<SysRole> sysRole = roleMapper.queryRoleListWithSelected(userId);
         if (CollectionUtils.isEmpty(sysRole)) {
-            return null;
+            return new ArrayList<>(1);
         }
-        List<Map<String, Object>> mapList = new ArrayList<Map<String, Object>>();
-        Map<String, Object> map = null;
+        List<Map<String, Object>> mapList = new ArrayList<>();
+        Map<String, Object> map;
         for (SysRole role : sysRole) {
-            map = new HashMap<String, Object>(3);
+            map = new HashMap<>(3);
             map.put("id", role.getId());
             map.put("pId", 0);
             map.put("checked", role.getSelected() != null && role.getSelected() == 1);
@@ -77,7 +76,7 @@ public class SysRoleServiceImpl implements SysRoleService {
     public List<RoleBO> listRolesByUserId(Long userId) {
         List<SysRole> sysRoles = roleMapper.listRolesByUserId(userId);
         if (CollectionUtils.isEmpty(sysRoles)) {
-            return null;
+            return new ArrayList<>(1);
         }
         List<RoleBO> roles = new ArrayList<>();
         for (SysRole r : sysRoles) {
@@ -182,12 +181,8 @@ public class SysRoleServiceImpl implements SysRoleService {
 
     private List<RoleBO> getRole(List<SysRole> sysRole) {
         if (CollectionUtils.isEmpty(sysRole)) {
-            return null;
+            return new ArrayList<>(1);
         }
-        List<RoleBO> Role = new ArrayList<>();
-        for (SysRole r : sysRole) {
-            Role.add(new RoleBO(r));
-        }
-        return Role;
+        return sysRole.stream().map(RoleBO::new).collect(Collectors.toList());
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 系统资源
@@ -37,10 +38,7 @@ public class SysResourcesServiceImpl implements SysResourcesService {
         if (CollectionUtils.isEmpty(sysResources)) {
             return null;
         }
-        List<ResourcesBO> resources = new ArrayList<>();
-        for (SysResources r : sysResources) {
-            resources.add(new ResourcesBO(r));
-        }
+        List<ResourcesBO> resources = sysResources.stream().map(ResourcesBO::new).collect(Collectors.toList());
         PageInfo bean = new PageInfo<>(sysResources);
         bean.setList(resources);
         return bean;
@@ -69,12 +67,12 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     public List<Map<String, Object>> queryResourcesListWithSelected(Long rid) {
         List<SysResources> sysResources = resourceMapper.queryResourcesListWithSelected(rid);
         if (CollectionUtils.isEmpty(sysResources)) {
-            return null;
+            return new ArrayList<>(1);
         }
-        List<Map<String, Object>> mapList = new ArrayList<Map<String, Object>>();
-        Map<String, Object> map = null;
+        List<Map<String, Object>> mapList = new ArrayList<>();
+        Map<String, Object> map;
         for (SysResources resources : sysResources) {
-            map = new HashMap<String, Object>(3);
+            map = new HashMap<>(3);
             map.put("id", resources.getId());
             map.put("pId", resources.getParentId());
             map.put("checked", resources.getChecked());
@@ -109,10 +107,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     public List<Map<String, Object>> listChildMenuByPid(Long pid) {
         List<SysResources> sysResources = resourceMapper.listMenuResourceByPid(pid);
         if(CollectionUtils.isEmpty(sysResources)){
-            return null;
+            return new ArrayList<>(1);
         }
         List<Map<String, Object>> result = new LinkedList<>();
-        Map<String, Object> item = null;
+        Map<String, Object> item;
         for (SysResources sysResource : sysResources) {
             item = new HashMap<>(2);
             item.put("value", sysResource.getId());
@@ -227,12 +225,8 @@ public class SysResourcesServiceImpl implements SysResourcesService {
 
     private List<ResourcesBO> getResources(List<SysResources> sysResources) {
         if (CollectionUtils.isEmpty(sysResources)) {
-            return null;
+            return new ArrayList<>(1);
         }
-        List<ResourcesBO> resources = new ArrayList<>();
-        for (SysResources r : sysResources) {
-            resources.add(new ResourcesBO(r));
-        }
-        return resources;
+        return sysResources.stream().map(ResourcesBO::new).collect(Collectors.toList());
     }
 }

@@ -42,7 +42,7 @@ public class RetryLimitCredentialsMatcher extends CredentialsMatcher {
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
         Long userId = (Long) info.getPrincipals().getPrimaryPrincipal();
         UserBO user = userService.getByPrimaryKey(userId);
-        log.info("user:{}", user.toString());
+        log.info("user:{}", user.getSysUser().toString());
         String username = user.getUsername();
         // 访问一次，计数一次
         ValueOperations<String, String> opsForValue = redisTemplate.opsForValue();
