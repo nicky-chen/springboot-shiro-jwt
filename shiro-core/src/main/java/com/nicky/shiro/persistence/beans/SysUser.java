@@ -38,8 +38,14 @@ public class SysUser extends AbstractDO implements AdapteeTarget {
 
     private Integer gender;
 
+    /**
+     * 头像地址
+     */
     private String avatar;
 
+    /**
+     * 超级管理员、管理员、普通用户
+     */
     private String userType;
 
     private String regIp;

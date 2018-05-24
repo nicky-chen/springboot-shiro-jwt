@@ -24,6 +24,9 @@ public class SysRole extends AbstractDO {
 
     private static final long serialVersionUID = -7206345155723108987L;
 
+    /**
+     * 角色名
+     */
     private String name;
 
     private String description;

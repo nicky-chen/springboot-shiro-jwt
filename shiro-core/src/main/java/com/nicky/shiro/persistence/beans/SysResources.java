@@ -27,10 +27,19 @@ public class SysResources extends AbstractDO {
 
     private static final long serialVersionUID = 1936021577348624761L;
 
+    /**
+     * 类型名称
+     */
     private String name;
 
+    /**
+     * 功能类型
+     */
     private String type;
 
+    /**
+     * 对应接口url
+     */
     private String url;
 
     private String permission;
@@ -39,10 +48,16 @@ public class SysResources extends AbstractDO {
 
     private Integer sort;
 
+    /**
+     * 是否外部链接
+     */
     private Boolean external;
 
     private Boolean available;
 
+    /**
+     * 菜单图标
+     */
     private String icon;
 
     @Transient
