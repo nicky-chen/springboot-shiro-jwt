@@ -23,6 +23,7 @@ import org.springframework.util.StringUtils;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 用户
@@ -171,7 +172,7 @@ public class SysUserServiceImpl implements SysUserService {
         for (SysUser su : sysUsers) {
             users.add(new UserBO(su));
         }
-        PageInfo bean = new PageInfo<SysUser>(sysUsers);
+        PageInfo bean = new PageInfo<>(sysUsers);
         bean.setList(users);
         return bean;
     }
@@ -207,13 +208,9 @@ public class SysUserServiceImpl implements SysUserService {
     public List<UserBO> listByRoleId(Long roleId) {
         List<SysUser> sysUsers = sysUserMapper.listByRoleId(roleId);
         if (CollectionUtils.isEmpty(sysUsers)) {
-            return null;
+            return new ArrayList<>(1);
         }
-        List<UserBO> users = new ArrayList<>();
-        for (SysUser su : sysUsers) {
-            users.add(new UserBO(su));
-        }
-        return users;
+        return sysUsers.stream().map(UserBO::new).collect(Collectors.toList());
     }
 
 }
