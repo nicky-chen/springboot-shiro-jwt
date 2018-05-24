@@ -33,13 +33,18 @@ public class RetryLimitCredentialsMatcher extends CredentialsMatcher {
      * 用户登录是否被锁定    一小时 redisKey 前缀
      */
     private static final String SHIRO_IS_LOCK = "shiro_is_lock_";
+
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, String> redisTemplate;
     @Autowired
     private SysUserService userService;
 
+    /**
+     * 用户登录统计
+     */
     @Override
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
+
         Long userId = (Long) info.getPrincipals().getPrimaryPrincipal();
         UserBO user = userService.getByPrimaryKey(userId);
         log.info("user:{}", user.getSysUser().toString());

@@ -8,7 +8,6 @@ import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
 
 /**
  * Shiro-密码凭证匹配器（验证密码有效性）
- *
  * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
  * @date 2018/4/24 14:37
@@ -16,15 +15,19 @@ import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
  */
 public class CredentialsMatcher extends SimpleCredentialsMatcher {
 
+    /**
+     * 登录帐号密码校验
+     */
     @Override
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
-        UsernamePasswordToken utoken = (UsernamePasswordToken) token;
+        UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) token;
         //获得用户输入的密码:(可以采用加盐(salt)的方式去检验)
-        String inPassword = new String(utoken.getPassword());
+        String inPassword = new String(usernamePasswordToken.getPassword());
         //获得数据库中的密码
-        String dbPassword = (String) info.getCredentials();
+        String dbPassword = info.getCredentials().toString();
         try {
-            dbPassword = PasswordUtil.decrypt(dbPassword, utoken.getUsername());
+            //解密
+            dbPassword = PasswordUtil.decrypt(dbPassword, usernamePasswordToken.getUsername());
         } catch (Exception e) {
             e.printStackTrace();
             return false;

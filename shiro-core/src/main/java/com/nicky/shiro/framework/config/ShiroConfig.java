@@ -39,6 +39,7 @@ public class ShiroConfig {
 
     @Autowired
     private ShiroService shiroService;
+
     @Autowired
     private RedisProperties redisProperties;
 
@@ -96,10 +97,13 @@ public class ShiroConfig {
         return securityManager;
     }
 
+    /**
+     * 安全数据源
+     */
     @Bean(name = "shiroRealm")
     public ShiroRealm shiroRealm(@Qualifier("credentialsMatcher") RetryLimitCredentialsMatcher matcher) {
         ShiroRealm shiroRealm = new ShiroRealm();
-        shiroRealm.setCredentialsMatcher(credentialsMatcher());
+        shiroRealm.setCredentialsMatcher(matcher);
         return shiroRealm;
     }
 
@@ -131,7 +135,7 @@ public class ShiroConfig {
      * 使用的是shiro-redis开源插件
      *
      */
-    public RedisManager redisManager() {
+    private RedisManager redisManager() {
         RedisManager redisManager = new RedisManager();
         redisManager.setHost(redisProperties.getHost());
         redisManager.setPort(redisProperties.getPort());
@@ -157,8 +161,7 @@ public class ShiroConfig {
      * RedisSessionDAO shiro sessionDao层的实现 通过redis
      * 使用的是shiro-redis开源插件
      */
-//    @Bean
-    public RedisSessionDAO redisSessionDAO() {
+    private RedisSessionDAO redisSessionDAO() {
         RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
         redisSessionDAO.setRedisManager(redisManager());
         return redisSessionDAO;
@@ -177,7 +180,7 @@ public class ShiroConfig {
     /**
      * cookie对象;
      */
-    public SimpleCookie rememberMeCookie() {
+    private SimpleCookie rememberMeCookie() {
         //这个参数是cookie的名称，对应前端的checkbox的name = rememberMe
         SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
         //<!-- 记住我cookie生效时间30天 ,单位秒;-->
@@ -188,7 +191,7 @@ public class ShiroConfig {
     /**
      * cookie管理对象;记住我功能
      */
-    public CookieRememberMeManager rememberMeManager() {
+    private CookieRememberMeManager rememberMeManager() {
         CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
         cookieRememberMeManager.setCookie(rememberMeCookie());
         //rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度(128 256 512 位)

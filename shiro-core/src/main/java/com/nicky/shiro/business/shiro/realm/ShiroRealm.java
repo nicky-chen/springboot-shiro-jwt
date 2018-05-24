@@ -7,6 +7,7 @@ import com.nicky.shiro.business.enums.UserStatusEnum;
 import com.nicky.shiro.business.service.SysResourcesService;
 import com.nicky.shiro.business.service.SysRoleService;
 import com.nicky.shiro.business.service.SysUserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -27,6 +28,7 @@ import java.util.List;
  * @date 2018/4/24 14:37
  * @since 1.0
  */
+@Slf4j
 public class ShiroRealm extends AuthorizingRealm {
 
     @Resource
@@ -81,7 +83,7 @@ public class ShiroRealm extends AuthorizingRealm {
         if (!CollectionUtils.isEmpty(resourcesList)) {
             for (ResourcesBO resources : resourcesList) {
                 String permission = resources.getPermission();
-                System.out.println(resources.getName() + "   " + permission);
+                log.info("用户{}, 权限:{}", userId, resources.getName() + "   " + permission);
                 if (!StringUtils.isEmpty(permission)) {
                     info.addStringPermission(permission);
                 }
