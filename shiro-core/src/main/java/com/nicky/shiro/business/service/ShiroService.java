@@ -7,7 +7,6 @@ import java.util.Map;
 
 /**
  * Shiro-权限相关的业务处理
- *
  * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
  * @date 2018/4/25 14:37

@@ -42,6 +42,9 @@ public class SysResources extends AbstractDO {
      */
     private String url;
 
+    /**
+     * 权限
+     */
     private String permission;
 
     private Long parentId;

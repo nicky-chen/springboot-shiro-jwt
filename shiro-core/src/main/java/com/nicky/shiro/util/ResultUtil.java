@@ -15,7 +15,6 @@ import java.util.Map;
 /**
  * 接口返回工具类，支持ModelAndView、ResponseVO、PageResult
  * @author nicky_chin [shuilianpiying@163.com]
- * @version 1.0
  * @date 2018/4/18 11:48
  * @since 1.0
  */

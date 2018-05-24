@@ -9,7 +9,6 @@ import java.util.UUID;
 
 /**
  * Session工具类
- *
  * @author nicky_chin [shuilianpiying@163.com]
  * @version 1.0
  * @date 2018/4/18 11:48

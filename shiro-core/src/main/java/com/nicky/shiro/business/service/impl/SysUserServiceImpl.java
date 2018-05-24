@@ -13,8 +13,6 @@ import com.nicky.shiro.persistence.beans.SysUser;
 import com.nicky.shiro.persistence.mapper.SysUserMapper;
 import com.nicky.shiro.util.IpUtil;
 import com.nicky.shiro.util.PasswordUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,14 +27,11 @@ import java.util.List;
 /**
  * 用户
  * @author nicky_chin [shuilianpiying@163.com]
- * @version 1.0
  * @date 2018/4/16 16:26
  * @since 1.0
  */
 @Service
 public class SysUserServiceImpl implements SysUserService {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(SysUserServiceImpl.class);
 
     @Autowired
     private SysUserMapper sysUserMapper;
