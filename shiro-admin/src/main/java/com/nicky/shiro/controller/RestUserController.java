@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 public class RestUserController {
+
     @Autowired
     private SysUserService userService;
     @Autowired
@@ -43,8 +44,6 @@ public class RestUserController {
 
     /**
      * 保存用户角色
-     *
-     * @param userId
      * @param roleIds
      *         用户角色
      *         此处获取的参数的角色id是以 “,” 分隔的字符串

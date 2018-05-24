@@ -5,8 +5,7 @@ import com.nicky.shiro.business.enums.ResponseStatus;
 import com.nicky.shiro.framework.exception.CommonException;
 import com.nicky.shiro.framework.object.ResponseVO;
 import com.nicky.shiro.util.ResultUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,8 +21,8 @@ import java.lang.reflect.UndeclaredThrowableException;
  * @since 1.0
  */
 @ControllerAdvice
+@Slf4j
 public class ExceptionHandleController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionHandleController.class);
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
@@ -36,7 +35,7 @@ public class ExceptionHandleController {
         }
         ResponseStatus responseStatus = ResponseStatus.getResponseStatus(e.getMessage());
         if (responseStatus != null) {
-            LOGGER.error(responseStatus.getMessage());
+            log.error(responseStatus.getMessage());
             return ResultUtil.error(responseStatus.getCode(), responseStatus.getMessage());
         }
         e.printStackTrace(); // 打印异常栈

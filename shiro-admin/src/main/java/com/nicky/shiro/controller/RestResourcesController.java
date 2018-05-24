@@ -29,6 +29,7 @@ public class RestResourcesController {
 
     @Autowired
     private SysResourcesService resourcesService;
+
     @Autowired
     private ShiroService shiroService;
 

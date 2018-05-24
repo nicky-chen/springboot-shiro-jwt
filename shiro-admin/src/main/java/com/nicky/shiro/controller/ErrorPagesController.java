@@ -1,7 +1,6 @@
 package com.nicky.shiro.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.boot.autoconfigure.web.ErrorController;
@@ -38,8 +37,8 @@ import java.util.Map;
 @Controller
 @RequestMapping("/error")
 @EnableConfigurationProperties({ServerProperties.class})
+@Slf4j
 public class ErrorPagesController implements ErrorController {
-    private static final Logger LOG = LoggerFactory.getLogger(ErrorPagesController.class);
 
     private ErrorAttributes errorAttributes;
 
@@ -104,8 +103,7 @@ public class ErrorPagesController implements ErrorController {
      *         the media type produced (or {@code MediaType.ALL})
      * @return if the stacktrace attribute should be included
      */
-    protected boolean isIncludeStackTrace(HttpServletRequest request,
-                                          MediaType produces) {
+    private boolean isIncludeStackTrace(HttpServletRequest request, MediaType produces) {
         ErrorProperties.IncludeStacktrace include = this.serverProperties.getError().getIncludeStacktrace();
         if (include == ErrorProperties.IncludeStacktrace.ALWAYS) {
             return true;
@@ -144,7 +142,7 @@ public class ErrorPagesController implements ErrorController {
         try {
             return HttpStatus.valueOf(statusCode);
         } catch (Exception ex) {
-            LOG.error("获取当前HttpStatus发生异常", ex);
+            log.error("获取当前HttpStatus发生异常", ex);
             return HttpStatus.INTERNAL_SERVER_ERROR;
         }
     }
