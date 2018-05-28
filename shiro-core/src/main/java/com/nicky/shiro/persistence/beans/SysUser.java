@@ -1,7 +1,7 @@
 package com.nicky.shiro.persistence.beans;
 
 import com.nicky.shiro.framework.object.AbstractDO;
-import com.nicky.shiro.persistence.adapter.AdapteeTarget;
+import com.nicky.shiro.persistence.adapter.AdapterFactory;
 import lombok.*;
 
 import java.util.Date;
@@ -18,7 +18,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false, of = {"username", "mobile"})
-public class SysUser extends AbstractDO implements AdapteeTarget {
+public class SysUser extends AbstractDO {
 
     private static final long serialVersionUID = 1761095260409301116L;
 
@@ -62,6 +62,6 @@ public class SysUser extends AbstractDO implements AdapteeTarget {
 
     @Override
     public String toString() {
-        return this.builderToString(1 << 10);
+        return AdapterFactory.builderStringValueAdapter(SysUser.class, 1 << 10);
     }
 }
