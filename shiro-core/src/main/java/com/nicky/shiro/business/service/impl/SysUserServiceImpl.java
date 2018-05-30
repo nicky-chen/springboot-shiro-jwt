@@ -2,6 +2,7 @@ package com.nicky.shiro.business.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.google.common.collect.Lists;
 import com.nicky.shiro.business.entity.bo.UserBO;
 import com.nicky.shiro.business.enums.UserStatusEnum;
 import com.nicky.shiro.business.service.SysUserService;
@@ -19,7 +20,6 @@ import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -53,7 +53,7 @@ public class SysUserServiceImpl implements SysUserService {
     @Transactional(rollbackFor = Exception.class)
     public void insertList(List<UserBO> users) {
         Assert.notNull(users, "UserBOs不可为空！");
-        List<SysUser> sysUsers = new ArrayList<>();
+        List<SysUser> sysUsers = Lists.newArrayListWithExpectedSize(users.size());
         String regIp = IpUtil.getRealIp(RequestHolder.getRequest());
         for (UserBO user : users) {
             user.setUpdateTime(new Date());
@@ -134,7 +134,7 @@ public class SysUserServiceImpl implements SysUserService {
         if (CollectionUtils.isEmpty(sysUsers)) {
             return Collections.emptyList();
         }
-        List<UserBO> users = new ArrayList<>();
+        List<UserBO> users = Lists.newArrayListWithExpectedSize(sysUsers.size());
         for (SysUser sysUser : sysUsers) {
             users.add(new UserBO(sysUser));
         }
@@ -148,7 +148,7 @@ public class SysUserServiceImpl implements SysUserService {
         if (CollectionUtils.isEmpty(sysUsers)) {
             return Collections.emptyList();
         }
-        List<UserBO> users = new ArrayList<>();
+        List<UserBO> users = Lists.newArrayListWithExpectedSize(sysUsers.size());
         for (SysUser su : sysUsers) {
             users.add(new UserBO(su));
         }
@@ -165,7 +165,7 @@ public class SysUserServiceImpl implements SysUserService {
         if (CollectionUtils.isEmpty(sysUsers)) {
             return null;
         }
-        List<UserBO> users = new ArrayList<>();
+        List<UserBO> users = Lists.newArrayListWithExpectedSize(sysUsers.size());
         for (SysUser su : sysUsers) {
             users.add(new UserBO(su));
         }

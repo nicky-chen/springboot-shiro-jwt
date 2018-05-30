@@ -1,5 +1,6 @@
 package com.nicky.shiro.business.service.impl;
 
+import com.google.common.collect.Lists;
 import com.nicky.shiro.business.entity.bo.UserRoleBO;
 import com.nicky.shiro.business.service.SysUserRoleService;
 import com.nicky.shiro.persistence.beans.SysUserRole;
@@ -13,7 +14,6 @@ import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -50,7 +50,7 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
     @Override
     public void insertList(List<UserRoleBO> entities) {
         Assert.notNull(entities, "entities不可为空！");
-        List<SysUserRole> sysUserRole = new ArrayList<>();
+        List<SysUserRole> sysUserRole = Lists.newArrayListWithExpectedSize(entities.size());
         entities.forEach(userRole -> {
             userRole.setUpdateTime(new Date());
             userRole.setCreateTime(new Date());
@@ -149,7 +149,7 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
         //添加
         String[] ids = roleIds.split(",");
         UserRoleBO u;
-        List<UserRoleBO> roles = new ArrayList<>();
+        List<UserRoleBO> roles = Lists.newArrayListWithExpectedSize(ids.length);
         for (String roleId : ids) {
             u = new UserRoleBO();
             u.setUserId(userId);

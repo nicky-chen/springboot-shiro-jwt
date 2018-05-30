@@ -8,7 +8,7 @@ import com.nicky.shiro.framework.object.PageResult;
 import com.nicky.shiro.framework.object.ResponseVO;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -66,7 +66,7 @@ public class ResultUtil {
 
     public static PageResult tablePage(PageInfo info) {
         if (info == null) {
-            return new PageResult(0L, new ArrayList());
+            return new PageResult(0L, Collections.EMPTY_LIST);
         }
         return tablePage(info.getTotal(), info.getList());
     }

@@ -1,5 +1,6 @@
 package com.nicky.shiro.business.service.impl;
 
+import com.google.common.collect.Maps;
 import com.nicky.shiro.business.entity.bo.ResourcesBO;
 import com.nicky.shiro.business.entity.bo.UserBO;
 import com.nicky.shiro.business.service.ShiroService;
@@ -21,7 +22,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -57,7 +57,7 @@ public class ShiroServiceImpl implements ShiroService {
             - authc: 需要认证才能进行访问
             - user:配置记住我或认证通过可以访问  例如 user:delete  user:edit
          */
-        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
+        Map<String, String> filterChainDefinitionMap = Maps.newLinkedHashMap();
         // 配置退出过滤器,其中的具体的退出代码Shiro已经替我们实现了
         filterChainDefinitionMap.put("/passport/logout", "logout");
         filterChainDefinitionMap.put("/passport/login", "anon");

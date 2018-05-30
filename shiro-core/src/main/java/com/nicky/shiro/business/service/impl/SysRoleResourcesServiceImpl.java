@@ -1,5 +1,6 @@
 package com.nicky.shiro.business.service.impl;
 
+import com.google.common.collect.Lists;
 import com.nicky.shiro.business.entity.bo.RoleResourcesBO;
 import com.nicky.shiro.business.service.SysRoleResourcesService;
 import com.nicky.shiro.persistence.beans.SysRoleResources;
@@ -14,7 +15,6 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -50,7 +50,7 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
     @Override
     public void insertList(List<RoleResourcesBO> entities) {
         Assert.notNull(entities, "entities不可为空！");
-        List<SysRoleResources> sysRoleResources = new ArrayList<>();
+        List<SysRoleResources> sysRoleResources = Lists.newArrayList();
         entities.forEach(roleResourcesBO -> {
             roleResourcesBO.setUpdateTime(new Date());
             roleResourcesBO.setCreateTime(new Date());
@@ -130,7 +130,7 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
         if (CollectionUtils.isEmpty(sysRoleResources)) {
             return Collections.emptyList();
         }
-        List<RoleResourcesBO> roleResources = new ArrayList<>();
+        List<RoleResourcesBO> roleResources = Lists.newArrayListWithExpectedSize(sysRoleResources.size());
         for (SysRoleResources r : sysRoleResources) {
             roleResources.add(new RoleResourcesBO(r));
         }
@@ -153,7 +153,7 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
         if (!StringUtils.isEmpty(resourcesId)) {
             String[] resourcesArr = resourcesId.split(",");
             SysRoleResources r;
-            List<SysRoleResources> roleResources = new ArrayList<>();
+            List<SysRoleResources> roleResources = Lists.newArrayListWithExpectedSize(resourcesArr.length);
             for (String ri : resourcesArr) {
                 r = new SysRoleResources();
                 r.setRoleId(roleId);

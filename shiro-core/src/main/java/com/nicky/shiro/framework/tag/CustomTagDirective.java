@@ -1,6 +1,7 @@
 
 package com.nicky.shiro.framework.tag;
 
+import com.google.common.collect.Maps;
 import com.nicky.shiro.business.service.SysResourcesService;
 import freemarker.core.Environment;
 import freemarker.template.*;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -47,7 +47,7 @@ public class CustomTagDirective implements TemplateDirectiveModel {
                         }
                         userId = Integer.parseInt(userIdStr);
                     }
-                    Map<String, Object> params = new HashMap<>(2);
+                    Map<String, Object> params = Maps.newHashMapWithExpectedSize(2);
                     params.put("type", "menu");
                     params.put("userId", userId);
                     environment.setVariable("menus", builder.build().wrap(resourcesService.listUserResources(params)));

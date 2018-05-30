@@ -2,6 +2,8 @@ package com.nicky.shiro.business.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.nicky.shiro.business.entity.bo.RoleBO;
 import com.nicky.shiro.business.service.SysRoleService;
 import com.nicky.shiro.business.vo.RoleConditionVO;
@@ -12,7 +14,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -37,10 +42,10 @@ public class SysRoleServiceImpl implements SysRoleService {
         if (CollectionUtils.isEmpty(sysRole)) {
             return Collections.emptyList();
         }
-        List<Map<String, Object>> mapList = new ArrayList<>();
+        List<Map<String, Object>> mapList = Lists.newArrayList();
         Map<String, Object> map;
         for (SysRole role : sysRole) {
-            map = new HashMap<>(3);
+            map = Maps.newHashMapWithExpectedSize(3);
             map.put("id", role.getId());
             map.put("pId", 0);
             map.put("checked", role.getSelected() != null && role.getSelected() == 1);
@@ -60,7 +65,7 @@ public class SysRoleServiceImpl implements SysRoleService {
         if (CollectionUtils.isEmpty(sysRoles)) {
             return null;
         }
-        List<RoleBO> roles = new ArrayList<>();
+        List<RoleBO> roles = Lists.newArrayListWithExpectedSize(sysRoles.size());
         for (SysRole r : sysRoles) {
             roles.add(new RoleBO(r));
         }
@@ -78,7 +83,7 @@ public class SysRoleServiceImpl implements SysRoleService {
         if (CollectionUtils.isEmpty(sysRoles)) {
             return Collections.emptyList();
         }
-        List<RoleBO> roles = new ArrayList<>();
+        List<RoleBO> roles = Lists.newArrayListWithExpectedSize(sysRoles.size());
         for (SysRole r : sysRoles) {
             roles.add(new RoleBO(r));
         }
@@ -103,7 +108,7 @@ public class SysRoleServiceImpl implements SysRoleService {
     @Override
     public void insertList(List<RoleBO> entities) {
         Assert.notNull(entities, "entities不可为空！");
-        List<SysRole> sysRole = new ArrayList<>();
+        List<SysRole> sysRole = Lists.newArrayListWithExpectedSize(entities.size());
         for (RoleBO role : entities) {
             role.setUpdateTime(new Date());
             role.setCreateTime(new Date());

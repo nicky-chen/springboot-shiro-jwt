@@ -2,6 +2,8 @@ package com.nicky.shiro.business.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.nicky.shiro.business.entity.bo.ResourcesBO;
 import com.nicky.shiro.business.service.SysResourcesService;
 import com.nicky.shiro.business.vo.ResourceConditionVO;
@@ -12,7 +14,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -51,9 +56,9 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     public List<ResourcesBO> listUserResources(Map<String, Object> map) {
         List<SysResources> sysResources = resourceMapper.listUserResources(map);
         if (CollectionUtils.isEmpty(sysResources)) {
-            return null;
+            return Collections.emptyList();
         }
-        List<ResourcesBO> resources = new ArrayList<>();
+        List<ResourcesBO> resources = Lists.newArrayListWithExpectedSize(sysResources.size());
         for (SysResources r : sysResources) {
             resources.add(new ResourcesBO(r));
         }
@@ -69,10 +74,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
         if (CollectionUtils.isEmpty(sysResources)) {
             return Collections.emptyList();
         }
-        List<Map<String, Object>> mapList = new ArrayList<>();
+        List<Map<String, Object>> mapList = Lists.newArrayList();
         Map<String, Object> map;
         for (SysResources resources : sysResources) {
-            map = new HashMap<>(3);
+            map = Maps.newHashMapWithExpectedSize(3);
             map.put("id", resources.getId());
             map.put("pId", resources.getParentId());
             map.put("checked", resources.getChecked());
@@ -109,10 +114,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
         if(CollectionUtils.isEmpty(sysResources)){
             return Collections.emptyList();
         }
-        List<Map<String, Object>> result = new LinkedList<>();
+        List<Map<String, Object>> result = Lists.newLinkedList();
         Map<String, Object> item;
         for (SysResources sysResource : sysResources) {
-            item = new HashMap<>(2);
+            item = Maps.newHashMapWithExpectedSize(2);
             item.put("value", sysResource.getId());
             item.put("text", sysResource.getName());
             result.add(item);
@@ -147,7 +152,7 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     @Override
     public void insertList(List<ResourcesBO> entities) {
         Assert.notNull(entities, "entities不可为空！");
-        List<SysResources> sysResources = new ArrayList<>();
+        List<SysResources> sysResources = Lists.newArrayListWithExpectedSize(entities.size());
         for (ResourcesBO resources : entities) {
             resources.setUpdateTime(new Date());
             resources.setCreateTime(new Date());
