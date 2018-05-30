@@ -35,7 +35,7 @@ public class SysRoleServiceImpl implements SysRoleService {
     public List<Map<String, Object>> queryRoleListWithSelected(Integer userId) {
         List<SysRole> sysRole = roleMapper.queryRoleListWithSelected(userId);
         if (CollectionUtils.isEmpty(sysRole)) {
-            return new ArrayList<>(1);
+            return Collections.emptyList();
         }
         List<Map<String, Object>> mapList = new ArrayList<>();
         Map<String, Object> map;
@@ -76,7 +76,7 @@ public class SysRoleServiceImpl implements SysRoleService {
     public List<RoleBO> listRolesByUserId(Long userId) {
         List<SysRole> sysRoles = roleMapper.listRolesByUserId(userId);
         if (CollectionUtils.isEmpty(sysRoles)) {
-            return new ArrayList<>(1);
+            return Collections.emptyList();
         }
         List<RoleBO> roles = new ArrayList<>();
         for (SysRole r : sysRoles) {
@@ -181,7 +181,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 
     private List<RoleBO> getRole(List<SysRole> sysRole) {
         if (CollectionUtils.isEmpty(sysRole)) {
-            return new ArrayList<>(1);
+            return Collections.emptyList();
         }
         return sysRole.stream().map(RoleBO::new).collect(Collectors.toList());
     }

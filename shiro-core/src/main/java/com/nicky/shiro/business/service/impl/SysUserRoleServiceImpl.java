@@ -14,6 +14,7 @@ import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -128,7 +129,7 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
 
     private List<UserRoleBO> getUserRole(List<SysUserRole> sysUserRole) {
         if (CollectionUtils.isEmpty(sysUserRole)) {
-            return null;
+            return Collections.emptyList();
         }
         return sysUserRole.stream().map(UserRoleBO::new).collect(Collectors.toList());
     }

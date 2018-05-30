@@ -20,6 +20,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -131,7 +132,7 @@ public class SysUserServiceImpl implements SysUserService {
         List<SysUser> sysUsers = sysUserMapper.selectAll();
 
         if (CollectionUtils.isEmpty(sysUsers)) {
-            return null;
+            return Collections.emptyList();
         }
         List<UserBO> users = new ArrayList<>();
         for (SysUser sysUser : sysUsers) {
@@ -145,7 +146,7 @@ public class SysUserServiceImpl implements SysUserService {
         Assert.notNull(user, "User不可为空！");
         List<SysUser> sysUsers = sysUserMapper.select(user.getSysUser());
         if (CollectionUtils.isEmpty(sysUsers)) {
-            return null;
+            return Collections.emptyList();
         }
         List<UserBO> users = new ArrayList<>();
         for (SysUser su : sysUsers) {
@@ -204,7 +205,7 @@ public class SysUserServiceImpl implements SysUserService {
     public List<UserBO> listByRoleId(Long roleId) {
         List<SysUser> sysUsers = sysUserMapper.listByRoleId(roleId);
         if (CollectionUtils.isEmpty(sysUsers)) {
-            return new ArrayList<>(1);
+            return Collections.emptyList();
         }
         return sysUsers.stream().map(UserBO::new).collect(Collectors.toList());
     }

@@ -15,6 +15,7 @@ import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -127,7 +128,7 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
 
     private List<RoleResourcesBO> getRoleResources(List<SysRoleResources> sysRoleResources) {
         if (CollectionUtils.isEmpty(sysRoleResources)) {
-            return null;
+            return Collections.emptyList();
         }
         List<RoleResourcesBO> roleResources = new ArrayList<>();
         for (SysRoleResources r : sysRoleResources) {

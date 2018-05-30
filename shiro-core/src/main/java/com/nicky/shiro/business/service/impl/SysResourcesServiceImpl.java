@@ -67,7 +67,7 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     public List<Map<String, Object>> queryResourcesListWithSelected(Long rid) {
         List<SysResources> sysResources = resourceMapper.queryResourcesListWithSelected(rid);
         if (CollectionUtils.isEmpty(sysResources)) {
-            return new ArrayList<>(1);
+            return Collections.emptyList();
         }
         List<Map<String, Object>> mapList = new ArrayList<>();
         Map<String, Object> map;
@@ -107,7 +107,7 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     public List<Map<String, Object>> listChildMenuByPid(Long pid) {
         List<SysResources> sysResources = resourceMapper.listMenuResourceByPid(pid);
         if(CollectionUtils.isEmpty(sysResources)){
-            return new ArrayList<>(1);
+            return Collections.emptyList();
         }
         List<Map<String, Object>> result = new LinkedList<>();
         Map<String, Object> item;
@@ -225,7 +225,7 @@ public class SysResourcesServiceImpl implements SysResourcesService {
 
     private List<ResourcesBO> getResources(List<SysResources> sysResources) {
         if (CollectionUtils.isEmpty(sysResources)) {
-            return new ArrayList<>(1);
+            return Collections.emptyList();
         }
         return sysResources.stream().map(ResourcesBO::new).collect(Collectors.toList());
     }
