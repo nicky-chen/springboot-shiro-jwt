@@ -1,5 +1,7 @@
 package com.nicky.shiro.controller;
 
+import com.google.common.base.Preconditions;
+import com.google.common.base.Strings;
 import com.nicky.shiro.framework.object.ResponseVO;
 import com.nicky.shiro.util.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +44,16 @@ public class PassportController {
      */
     @PostMapping("/signin")
     @ResponseBody
-    public ResponseVO submitLogin(String username, String password, boolean rememberMe, String kaptcha) {
+    public ResponseVO submitLogin(String username, String password, Boolean rememberMe, String kaptcha) {
+
+        try {
+            Preconditions.checkArgument(!Strings.isNullOrEmpty(username), "用户名不能为空");
+            Preconditions.checkArgument(!Strings.isNullOrEmpty(password), "密码为空");
+            Preconditions.checkNotNull(rememberMe, "是否记住我不能为空");
+        } catch (Exception e) {
+            return ResultUtil.error(e.getMessage());
+        }
+
         UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);
         //获取当前的Subject
         Subject currentUser = SecurityUtils.getSubject();
