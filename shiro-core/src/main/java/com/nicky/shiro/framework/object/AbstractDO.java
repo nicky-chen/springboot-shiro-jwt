@@ -26,10 +26,10 @@ public abstract class AbstractDO implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
-    private Date createTime;
+    protected Date createTime;
 
-    private Date updateTime;
+    protected Date updateTime;
 
 }

@@ -2,11 +2,12 @@ package com.nicky.shiro.persistence.beans;
 
 import com.nicky.shiro.framework.object.AbstractDO;
 import com.nicky.shiro.persistence.adapter.AdapteeTarget;
-import com.nicky.shiro.persistence.adapter.StringAdapter;
+import com.nicky.shiro.persistence.adapter.StyleAdapter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import javax.persistence.Transient;
 
@@ -42,7 +43,9 @@ public class SysRole extends AbstractDO {
 
     @Override
     public String toString() {
-        AdapteeTarget target = new StringAdapter<>(this, 1 << 7);
+//        AdapteeTarget target = new StringAdapter<>(this, 1 << 7);
+//        return target.toString();
+        AdapteeTarget target = new StyleAdapter<>(this, ToStringStyle.JSON_STYLE);
         return target.toString();
     }
 
