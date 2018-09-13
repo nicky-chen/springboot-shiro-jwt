@@ -38,7 +38,8 @@ public class ExceptionHandleController {
             log.error(responseStatus.getMessage());
             return ResultUtil.error(responseStatus.getCode(), responseStatus.getMessage());
         }
-        e.printStackTrace(); // 打印异常栈
+        e.printStackTrace();
+        // 打印异常栈
         return ResultUtil.error(CommonConst.DEFAULT_ERROR_CODE, ResponseStatus.ERROR.getMessage());
     }
 
